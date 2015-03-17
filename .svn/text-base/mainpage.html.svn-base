@@ -1,0 +1,767 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script src="static/www2-main.js"></script>
+<script type="text/javascript">writeCssMainpage();</script>
+<link rel="stylesheet" type="text/css" href="static/randomad.css"/>
+</head>
+<body leftmargin="5" topmargin="0" marginwidth="0" marginheight="0">
+<script src="static/randomad.js"></script>
+<table width="100%">
+  <tr>
+    <td valign=top align="center">
+    </td>
+  </tr>
+</table>
+<center style="padding: 0.5em;font-weight:bold;font-size:150%;display:none">
+  珞珈山水</center>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <form action="bbssel.php">
+    <tr>
+      <td height="18" width="84" class="header" align="center"><a href="bbsdoc.php?board=Announce">系统公告</a></td>
+      <td width="84" class="header" align="center"><a href="bbsrecommend.php">推荐文章</a></td>
+      <td width="100" class="header" align="center"><a href="bbssec.php">分类讨论区</a></td>
+      <td width="80" class="header" align="center"><a href="bbsxmlbrd.php?flag=0">推荐版面</a></td>
+      <td width="81" class="header" align="center"><a href="bbsxmlbrd.php?flag=1">人气排名</a></td>
+      <td width="79" class="header" align="center"><a href="#todaybless">本日祝福</a></td>
+      <td width="79" class="header" align="center"><a href="bbsnotice.php?file=hotinfo">近期热点</a></td>
+      <td width="79" class="header" align="center"><a href="bbsnotice.php?file=systeminfo">系统热点</a></td>
+      <td width="79" class="header" align="center">        <a href="/pc/pcmain.php">山水BLOG</a>
+        </td>
+      <td class="header"></td>
+      <td class="header" align="right" width="315"><input type="text" name="board" size="12" maxlength="30" value="版面搜索" class="text">
+        <input type="submit" size="15" value="GO" class="button"></td>
+    </tr>
+  </form>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td colspan="5" height="8"></td>
+  </tr>
+  <tr>
+    <td valign="top">
+	<center>
+    <div style="text-align:center"><!--
+<a href='http://union1.cdream.com/distribution.aspx?pID=529&aID=100695&m=3&adListID=100192&display=1280*800&redirectUrl=http%3a%2f%2fad.cn.doubleclick.net%2fclk%3b217479724%3b40635640%3bk%3fhttp%3a%2f%2ftennis.chevrolet.com.cn%3furlfrom%3dtennis_090826_web_xiaoyuanmengwang'><img width='468' height='60' src='/ad/xfl.gif'></a>
+ hitMe Ad Start<iframe width='468' height='60' src='http://cernet.hitme.com.cn/count/PreSchedule.aspx?pID=529' marginheight=0 marginwidth=0 frameborder=0 scrolling=no></iframe> --><!-- hitMe Ad End-->
+<iframe width='468' height='60' src='http://cernet.hitme.com.cn/count/PreSchedule.aspx?pID=529' marginheight=0 marginwidth=0 frameborder=0 scrolling=no></iframe>
+  </div>
+    </center>
+    <br>
+	<div align="center">
+  <table cellpadding="0" cellspacing="0" class="recommend_title">
+    <tr>
+      <td>&nbsp;&nbsp;推荐文章</td>
+    </tr>
+  </table>
+</div>
+<table border="0" cellpadding="0" cellspacing="0" class="RecommendTable" align="center">
+  <tr>
+    <td height=10 colspan=2></td>
+  </tr>
+    <tr>
+    <td class="RecommendTitle"><script type="text/javascript">putImage("recommend.gif","");</script>
+      &nbsp;<a href="bbsrecon.php?id=3954">四万西辞黄鹤楼，寒冬腊月下扬州（单人自助游报告）</a></td>
+    <td class="RecommendLink"><div align="right">[<a href="bbsdoc.php?board=Travel">海天游踪</a>] [<a href="bbstcon.php?board=Travel&gid=1102873351">同主题阅读原文</a>]</div></td>
+  </tr>
+  <tr>
+    <td colspan=2><dl style="MARGIN-TOP: 1px;MARGIN-BOTTOM: 5px; MARGIN-LEFT: 25px;">
+        <dt style="height:2.2em; overflow:hidden;">    冬天是扬州的旅游淡季，植物肯定是没有春夏茂盛的。淡季的好处就是人没有那么挤，拍照会方便一点。不过其实周末人也不少，上海南京的游客很多，我还碰到过一个台湾的团呢。
+    首先简单报告一下我的行程，我去扬州回来都是坐的直达的卧铺车，在扬州逗留       </dl></td>
+  </tr>
+    <tr>
+    <td class="RecommendTitle"><script type="text/javascript">putImage("recommend.gif","");</script>
+      &nbsp;<a href="bbsrecon.php?id=3955">聊聊我的导师</a></td>
+    <td class="RecommendLink"><div align="right">[<a href="bbsdoc.php?board=PostGraduate">研究生之家</a>] [<a href="bbstcon.php?board=PostGraduate&gid=1110364700">同主题阅读原文</a>]</div></td>
+  </tr>
+  <tr>
+    <td colspan=2><dl style="MARGIN-TOP: 1px;MARGIN-BOTTOM: 5px; MARGIN-LEFT: 25px;">
+        <dt style="height:2.2em; overflow:hidden;">    毕业两年多了，还是觉得在学校的读研究生的两年过得最幸福。经常会时不时想起发生在我导师（以下简称老板）身上的一些事情，记得研一报到交费的前一天，大家都在实验室，下午老板拎个包来了，径直坐到实验室最里头，然后就一个人一个人喊过去，轮到我过�       </dl></td>
+  </tr>
+    <tr>
+    <td class="RecommendTitle"><script type="text/javascript">putImage("recommend.gif","");</script>
+      &nbsp;<a href="bbsrecon.php?id=3957">被感动了一把</a></td>
+    <td class="RecommendLink"><div align="right">[<a href="bbsdoc.php?board=Feeling">心情故事</a>] [<a href="bbstcon.php?board=Feeling&gid=1110735885">同主题阅读原文</a>]</div></td>
+  </tr>
+  <tr>
+    <td colspan=2><dl style="MARGIN-TOP: 1px;MARGIN-BOTTOM: 5px; MARGIN-LEFT: 25px;">
+        <dt style="height:2.2em; overflow:hidden;">ZZ,发生地点：深圳
+昨天冒着大雨去市民中心办事，然后坐一辆373路公交车回家，已到了下班时间，车上人非常多。在我面前坐着一位满头白发的老太太，慈祥、安静，我禁不住多看了几眼。
+她在公交车每个站台要停靠的时候都要从座位上站起来，并颠起脚跟，弓着腰       </dl></td>
+  </tr>
+    <tr>
+    <td class="RecommendTitle"><script type="text/javascript">putImage("recommend.gif","");</script>
+      &nbsp;<a href="bbsrecon.php?id=3962">《十月围城》：不见孤胆英雄，只见热血义士！</a></td>
+    <td class="RecommendLink"><div align="right">[<a href="bbsdoc.php?board=Movie">电影</a>] [<a href="bbstcon.php?board=Movie&gid=52740">同主题阅读原文</a>]</div></td>
+  </tr>
+  <tr>
+    <td colspan=2><dl style="MARGIN-TOP: 1px;MARGIN-BOTTOM: 5px; MARGIN-LEFT: 25px;">
+        <dt style="height:2.2em; overflow:hidden;">http://blog.sina.com.cn/s/blog_4b104b190100g9ei.html
+《十月围城》：不见孤胆英雄，只见热血义士
+比起《刺陵》的虚张声势，《风云2》的虚幻缥缈，《三枪》的山寨恶俗来，2009年最后一部贺岁大片《十月围城》显然高明了许多，真正让人找回了那种热血沸腾的       </dl></td>
+  </tr>
+    <tr>
+    <td class="RecommendTitle"><script type="text/javascript">putImage("recommend.gif","");</script>
+      &nbsp;<a href="bbsrecon.php?id=3963">【注意】武大考点2010年硕士研究生入学考试网上打印准考证</a></td>
+    <td class="RecommendLink"><div align="right">[<a href="bbsdoc.php?board=kaoyan">考研信息港</a>] [<a href="bbstcon.php?board=kaoyan&gid=1110345371">同主题阅读原文</a>]</div></td>
+  </tr>
+  <tr>
+    <td colspan=2><dl style="MARGIN-TOP: 1px;MARGIN-BOTTOM: 5px; MARGIN-LEFT: 25px;">
+        <dt style="height:2.2em; overflow:hidden;">       武汉大学2010年硕士研究生入学考试报考信息查询及网上打印准考证开通
+各位考生：
+    为方便广大考生查询报考信息，武汉大学2010年硕士研究生入学考试报考信息查询及网上打印准考证已经开通，请访问：http://202.114.77.7/gsao查询。关于本系统，说明       </dl></td>
+  </tr>
+    <tr>
+    <td class="RecommendTitle"><script type="text/javascript">putImage("recommend.gif","");</script>
+      &nbsp;<a href="bbsrecon.php?id=3964">《十月围城》：魔兽争霸，八仙护驾</a></td>
+    <td class="RecommendLink"><div align="right">[<a href="bbsdoc.php?board=Movie">电影</a>] [<a href="bbstcon.php?board=Movie&gid=52798">同主题阅读原文</a>]</div></td>
+  </tr>
+  <tr>
+    <td colspan=2><dl style="MARGIN-TOP: 1px;MARGIN-BOTTOM: 5px; MARGIN-LEFT: 25px;">
+        <dt style="height:2.2em; overflow:hidden;">   前一段看《死神来了》，专门研究人是怎么奇怪地死亡，毫无疑问，1906年十月的那一天，死神穿着斗篷，带着镰刀，和孙文一起在香港码头登陆，美国一部电影曾调侃地总结过电影里一些不能说的禁语，如“我马上就回来”，事实上，他准是永远也回不来了，所以，       </dl></td>
+  </tr>
+    <tr>
+    <td width="100%" height=15 align="right" colspan=2><a href="bbsrecommend.php">更多推荐文章</a></td>
+  </tr>
+</table>
+
+      <center>
+      <!--
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="468" height="60">
+<param name=movie value="/ad/vnetbanner.swf" ref>
+<param name=quality value=High>
+<param name="_cx" value="12383">
+<param name="_cy" value="1588">
+<param name="FlashVars" value>
+<param name="Src" ref value="/ad/vnetbanner.swf">
+<param name="WMode" value="Window">
+<param name="Play" value="-1">
+<param name="Loop" value="-1">
+<param name="SAlign" value>
+<param name="Menu" value="-1">
+<param name="Base" value>
+<param name="AllowScriptAccess" value="always">
+<param name="Scale" value="ShowAll">
+<param name="DeviceFont" value="0">
+<param name="EmbedMovie" value="0">
+<param name="BGColor" value>
+<param name="SWRemote" value>
+<param name="MovieData" value>
+<embed src="/ad/vnetbanner.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="468" height="60">
+</embed></object>
+     <a href="http://www.hb.chinamobile.com/jsp/xxfb/xc/2009082401/index.html" target=_blank><img src="ad/donggan.gif"></a>   
+     <iframe width='468' height='60' src='http://cernet.hitme.com.cn/count/PreSchedule.aspx?pID=130' marginheight=0 marginwidth=0 frameborder=0 scrolling=no></iframe> -->
+      </center>
+      <br>
+      <div align="center">
+  <table cellpadding="0" cellspacing="0" class="hot_title">
+    <tr>
+      <td>&nbsp;&nbsp;十大热点话题 [<a href="rssi.php?h=1" target="_blank">RSS</a>]</td>
+    </tr>
+  </table>
+</div>
+<table border="0" cellpadding="0" cellspacing="0" class="HotTable" align="center">
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=Feeling">
+      心情故事      </a>]<a href="bbstcon.php?board=Feeling&gid=1110738583">如果你答应借给我2k，我就做你女友！</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=tina123">
+      tina123      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=PostGraduate">
+      研究生之家      </a>]<a href="bbstcon.php?board=PostGraduate&gid=1110365602">看了人家华科的博士毕业论文，自己相当 汗颜</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=wsghr">
+      wsghr      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=Feeling">
+      心情故事      </a>]<a href="bbstcon.php?board=Feeling&gid=1110738816">终于牵起了你的手（前续）</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=wh825554">
+      wh825554      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=single">
+      光辉岁月      </a>]<a href="bbstcon.php?board=single&gid=266788">hailanlan的名人效应</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=shiyingda999">
+      shiyingda999      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=Humor">
+      幽默      </a>]<a href="bbstcon.php?board=Humor&gid=1102971438">北京某旅游公司的广告：</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=cdy135246">
+      cdy135246      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=Feeling">
+      心情故事      </a>]<a href="bbstcon.php?board=Feeling&gid=1110738310">为我花了好多钱啊。</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=sheng0123">
+      sheng0123      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=Humor">
+      幽默      </a>]<a href="bbstcon.php?board=Humor&gid=1102971435">爺爺的經典事蹟zz</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=lsyw">
+      lsyw      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=single">
+      光辉岁月      </a>]<a href="bbstcon.php?board=single&gid=266795">圣诞节哦</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=ydna">
+      ydna      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=PieFriends">
+      缘分的天空      </a>]<a href="bbstcon.php?board=PieFriends&gid=362894">圣诞节不愿意一个人过，替才子找mm一起过。</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=shed">
+      shed      </a>&nbsp;&nbsp;</td>       
+  </tr>
+    <tr>
+    <td class="HotTitle">[<a href="bbsdoc.php?board=WHUExpress">
+      武大特快      </a>]<a href="bbstcon.php?board=WHUExpress&gid=485014">武大落寞（转载）</a></td>
+    <td class="HotAuthor"><a href="bbsqry.php?userid=lantao2008">
+      lantao2008      </a>&nbsp;&nbsp;</td>       
+  </tr>
+  </table>
+<div align="center">
+  <table cellpadding="0" cellspacing="0" class="type_title">
+    <tr>
+      <td>&nbsp;&nbsp;分类精彩讨论区</td>
+    </tr>
+  </table>
+</div>
+<table border="0" cellpadding="0" cellspacing="0" class="SecTable" align="center">
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=1">武汉大学</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=WHUExpress">武大特快</a>,
+            <a href="bbsdoc.php?board=PostGraduate">研究生之家</a>,
+            <a href="bbsdoc.php?board=WHUCentury">皇皇吾大</a>,
+            <a href="bbsdoc.php?board=C.S">计算机学院</a>,
+            <a href="bbsdoc.php?board=E.E.S">电气工程学院</a>,
+            <a href="rssi.php?h=2&s=1" target="_blank">[RSS]</a><a href="bbsboa.php?group=1">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=PostGraduate">
+    研究生之家    </a>]<a href="bbstcon.php?board=PostGraduate&gid=1110365602">看了人家华科的博士毕业论文，自己相当 汗颜</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=wsghr">wsghr</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=WHUExpress">
+    武大特快    </a>]<a href="bbstcon.php?board=WHUExpress&gid=485014">武大落寞（转载）</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=lantao2008">lantao2008</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=WHUExpress">
+    武大特快    </a>]<a href="bbstcon.php?board=WHUExpress&gid=484987">武大一副主任掐死聋哑女友 两人洗脚屋相识同居</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=woman">woman</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=WHUExpress">
+    武大特快    </a>]<a href="bbstcon.php?board=WHUExpress&gid=485070">关于考试送钱论～</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=lz316526">lz316526</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=PostGraduate">
+    研究生之家    </a>]<a href="bbstcon.php?board=PostGraduate&gid=1110365570">弘博惊现寂寞吹箫男</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=rchouchina">rchouchina</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=E.M.S">
+    经济与管理学院    </a>]<a href="bbstcon.php?board=E.M.S&gid=17171">2010年度大学生寒假课题资助项目正式启动（经济与管理学院）</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=Qunlian">Qunlian</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=M.S">
+    医学部    </a>]<a href="bbstcon.php?board=M.S&gid=20752">武汉大学医学生“规划大学生活”系列讲座之一 —- 学会自强自立</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=ZHLu">ZHLu</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=PostGraduate">
+    研究生之家    </a>]<a href="bbstcon.php?board=PostGraduate&gid=1110365617">武汉大学医学生“规划大学生活”系列讲座之一 —- 学会自强自立</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=ZHLu">ZHLu</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Notice">
+    校园海报栏    </a>]<a href="bbstcon.php?board=Notice&gid=3988">武汉大学医学生“规划大学生活”系列讲座之一 —- 学会自强自立</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=ZHLu">ZHLu</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=WHUCentury">
+    皇皇吾大    </a>]<a href="bbstcon.php?board=WHUCentury&gid=24693">原来30年代的武大樱园宿舍是有暖气的</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=Ridgeway">Ridgeway</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=8">社会信息</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=secondhand">二手货交易市场</a>,
+            <a href="bbsdoc.php?board=Job">工作</a>,
+            <a href="bbsdoc.php?board=Abroad">出国·他乡寻梦</a>,
+            <a href="bbsdoc.php?board=Wish">生日·祝福</a>,
+            <a href="bbsdoc.php?board=JobInfo">工作信息</a>,
+            <a href="rssi.php?h=2&s=8" target="_blank">[RSS]</a><a href="bbsboa.php?group=8">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=House">
+    房屋租赁    </a>]<a href="bbstcon.php?board=House&gid=24655">茶港小区2室1厅招合租，最好是武大在读书男生</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=baobaoshy">baobaoshy</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=secondhand">
+    二手货交易市场    </a>]<a href="bbstcon.php?board=secondhand&gid=1110494849">出米国带回全新Timberland靴一双</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=PeeWeeHerman">PeeWeeHerman</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=secondhand">
+    二手货交易市场    </a>]<a href="bbstcon.php?board=secondhand&gid=1110494852">50块钱的自行车居然都有人偷！！！！</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=icy100">icy100</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=House">
+    房屋租赁    </a>]<a href="bbstcon.php?board=House&gid=24604">有没有2011考研男生一起学习一起租房吖</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=yike">yike</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=House">
+    房屋租赁    </a>]<a href="bbstcon.php?board=House&gid=24654">田园小观园附近单间出租</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=dier">dier</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Job">
+    工作    </a>]<a href="bbstcon.php?board=Job&gid=1110450559">[求助]女生当老师好还是进银行好呀？</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=Julie">Julie</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Job">
+    工作    </a>]<a href="bbstcon.php?board=Job&gid=1110450594">中兴通讯武大校友QQ群100485223</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=asiwhuda">asiwhuda</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Job">
+    工作    </a>]<a href="bbstcon.php?board=Job&gid=1110450598">有梦想的 进</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=lxf">lxf</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=secondhand">
+    二手货交易市场    </a>]<a href="bbstcon.php?board=secondhand&gid=1110494528">实在是不适合，挥泪转让pp羽绒衣.</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=penghuiyun">penghuiyun</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=JobInfo">
+    工作信息    </a>]<a href="bbstcon.php?board=JobInfo&gid=7683">渣打银行2010管理培训生校园招聘-新增职位</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=chenjuan62">chenjuan62</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=2">乡情校谊</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Beijing">皇城幽幽·北京</a>,
+            <a href="bbsdoc.php?board=Shanghai">风情沪上·上海</a>,
+            <a href="bbsdoc.php?board=Zhejiang">诗画之江·浙江</a>,
+            <a href="bbsdoc.php?board=Wuhan">江城风情</a>,
+            <a href="bbsdoc.php?board=Hunan">三湘四水·湖南</a>,
+            <a href="rssi.php?h=2&s=2" target="_blank">[RSS]</a><a href="bbsboa.php?group=2">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Henan">
+    逐鹿中原·河南    </a>]<a href="bbstcon.php?board=Henan&gid=13435">平安夜</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=cxlq">cxlq</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=BaShu">
+    巴山蜀水·巴蜀    </a>]<a href="bbstcon.php?board=BaShu&gid=21624">圣诞快乐哦</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=dongbula">dongbula</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Hunan">
+    三湘四水·湖南    </a>]<a href="bbstcon.php?board=Hunan&gid=13948">圣诞夜的Good night</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=jenkin12">jenkin12</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=6">休闲娱乐</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Feeling">心情故事</a>,
+            <a href="bbsdoc.php?board=PieFriends">缘分的天空</a>,
+            <a href="bbsdoc.php?board=single">光辉岁月</a>,
+            <a href="bbsdoc.php?board=Humor">幽默</a>,
+            <a href="bbsdoc.php?board=Picture">贴图版</a>,
+            <a href="rssi.php?h=2&s=6" target="_blank">[RSS]</a><a href="bbsboa.php?group=6">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Feeling">
+    心情故事    </a>]<a href="bbstcon.php?board=Feeling&gid=1110738583">如果你答应借给我2k，我就做你女友！</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=tina123">tina123</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Feeling">
+    心情故事    </a>]<a href="bbstcon.php?board=Feeling&gid=1110738816">终于牵起了你的手（前续）</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=wh825554">wh825554</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=single">
+    光辉岁月    </a>]<a href="bbstcon.php?board=single&gid=266788">hailanlan的名人效应</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=shiyingda999">shiyingda999</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Humor">
+    幽默    </a>]<a href="bbstcon.php?board=Humor&gid=1102971438">北京某旅游公司的广告：</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=cdy135246">cdy135246</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Feeling">
+    心情故事    </a>]<a href="bbstcon.php?board=Feeling&gid=1110738310">为我花了好多钱啊。</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=sheng0123">sheng0123</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Humor">
+    幽默    </a>]<a href="bbstcon.php?board=Humor&gid=1102971435">爺爺的經典事蹟zz</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=lsyw">lsyw</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=single">
+    光辉岁月    </a>]<a href="bbstcon.php?board=single&gid=266795">圣诞节哦</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=ydna">ydna</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=PieFriends">
+    缘分的天空    </a>]<a href="bbstcon.php?board=PieFriends&gid=362894">圣诞节不愿意一个人过，替才子找mm一起过。</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=shed">shed</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=single">
+    光辉岁月    </a>]<a href="bbstcon.php?board=single&gid=266674">告别单身了</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=flyingmyself">flyingmyself</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Astrology">
+    星座    </a>]<a href="bbstcon.php?board=Astrology&gid=1105735089">2009-12-25 天蝎座 Scorpio     (10/24-11/22)</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=ydna">ydna</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=4">科学技术</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Math">数学</a>,
+            <a href="bbsdoc.php?board=History">历史</a>,
+            <a href="bbsdoc.php?board=Science">科学</a>,
+            <a href="bbsdoc.php?board=Physics">物理</a>,
+            <a href="bbsdoc.php?board=NumComp">数值计算</a>,
+            <a href="rssi.php?h=2&s=4" target="_blank">[RSS]</a><a href="bbsboa.php?group=4">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Math">
+    数学    </a>]<a href="bbstcon.php?board=Math&gid=8792">建议想读数学的同学想办法去巴黎</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=gigi">gigi</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Math">
+    数学    </a>]<a href="bbstcon.php?board=Math&gid=8769">The Fundamental Lemma of Langlands Program, Solved</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=uevoli">uevoli</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Math">
+    数学    </a>]<a href="bbstcon.php?board=Math&gid=8770">Dragan Milicic的Lectures on Derived Categories确实很入门</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=uevoli">uevoli</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=3">电脑网络</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Digital">数码时代</a>,
+            <a href="bbsdoc.php?board=Programm">程序人生</a>,
+            <a href="bbsdoc.php?board=Hardware">硬件天地</a>,
+            <a href="bbsdoc.php?board=ACM_ICPC">国际大学生程序设计竞赛</a>,
+            <a href="bbsdoc.php?board=Security">系统安全</a>,
+            <a href="rssi.php?h=2&s=3" target="_blank">[RSS]</a><a href="bbsboa.php?group=3">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Hardware">
+    硬件天地    </a>]<a href="bbstcon.php?board=Hardware&gid=1103447890">请教高手</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=sad0523">sad0523</a></td>
+</tr>
+<tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=OS">
+    操作系统    </a>]<a href="bbstcon.php?board=OS&gid=9785">继chrome OS之后，YLMF OS再出江湖！</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=muyx">muyx</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=7">体育健身</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Football">足球</a>,
+            <a href="bbsdoc.php?board=Basketball">篮球</a>,
+            <a href="bbsdoc.php?board=Sports">休闲体育</a>,
+            <a href="bbsdoc.php?board=Speed">一骑绝尘</a>,
+            <a href="bbsdoc.php?board=Tabletennis">乒乓球</a>,
+            <a href="rssi.php?h=2&s=7" target="_blank">[RSS]</a><a href="bbsboa.php?group=7">[更多]</a></span></td>
+  </tr>
+    </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=5">文学艺术</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Story">珞珈原创</a>,
+            <a href="bbsdoc.php?board=English">英语天地</a>,
+            <a href="bbsdoc.php?board=Comic">漫画*动画*童话</a>,
+            <a href="bbsdoc.php?board=ASCIIart">ASCII艺术</a>,
+            <a href="bbsdoc.php?board=MyStage">舞台人生</a>,
+            <a href="rssi.php?h=2&s=5" target="_blank">[RSS]</a><a href="bbsboa.php?group=5">[更多]</a></span></td>
+  </tr>
+  <tr>
+  <td class="SectionItem">[<a href="bbsdoc.php?board=Story">
+    珞珈原创    </a>]<a href="bbstcon.php?board=Story&gid=1105527575">笛箫之梦 [原创]</a>&nbsp;&nbsp;</td>
+    <td class="HotSecAuthor"><a href="bbsqry.php?userid=bailu">bailu</a></td>
+</tr>
+  </tr>
+    <tr>
+    <td height="1" class="SecLine"></td>
+  </tr>
+    <tr>
+    <td colspan="2" valign="top" class="SectionTitle"><script type="text/javascript">putImage("section.gif","");</script>
+      &nbsp;<span class="SectionName"><a href="bbsboa.php?group=0">本站系统</a></span>&nbsp;&nbsp;<span class="SectionList">
+            <a href="bbsdoc.php?board=Advice">共建山水</a>,
+            <a href="bbsdoc.php?board=BBSHelp">BBS使用技巧</a>,
+            <a href="bbsdoc.php?board=WebArt">Web美工</a>,
+            <a href="bbsdoc.php?board=Anniversary">山水站庆</a>,
+            <a href="bbsdoc.php?board=TShirt">山水站衫</a>,
+            <a href="rssi.php?h=2&s=0" target="_blank">[RSS]</a><a href="bbsboa.php?group=0">[更多]</a></span></td>
+  </tr>
+    </tr>
+  </table>
+</td>
+    <td width="1" class="vline"></td>
+    <td width="18">&nbsp;</td>
+    <td align="left" valign="top" width="270px">
+    <!--注释掉的首页右上角图片区域
+<center>
+<div id="idPicShow" class="container">
+  <ul id="idNum">
+  </ul>
+</div>
+<div id="idPicText"></div>
+<div style="display:none" id="idPicList"></div>
+</center>
+<br>
+
+
+<script>
+var rvt = new RevealTrans("idPicShow");
+//添加变换对象
+rvt.Add('ad/4.jpg', '工科男的“创意”毕业照', 'bbstcon.php?board=Picture&gid=258027');
+rvt.Add('ad/1.jpg', '咖啡店的咖啡艺术', 'bbstcon.php?board=Picture&gid=256912');
+rvt.Add('ad/2.jpg', '很强大的毕业照', 'bbstcon.php?board=Picture&gid==257405');
+//rvt.Add('ad/3.jpg', '食堂再现虫子-小强横空出世', 'bbstcon.php?board=Picture&gid=257611');
+
+var oList = $("idPicList"), oText = $("idPicText"), arrImg = [];
+
+var oNum = $("idNum"), arrNum = [];
+
+//设置图片列表
+Each(rvt.List, function(list, i){
+	//图片式
+	var img = document.createElement("img");
+	img.src = list["img"]; img.alt = list["text"];
+	arrImg[i] = img;
+	oList.appendChild(img);
+	//按钮式
+	var li = document.createElement("li");
+	li.innerHTML = i + 1;
+	arrNum[i] = li;
+	oNum.appendChild(li);
+	//事件设置
+	img.onmouseover = li.onmouseover = function(){ rvt.Auto = false; rvt.Index = i; rvt.Start(); };
+	img.onmouseout = li.onmouseout = function(){ rvt.Auto = true; rvt.Start(); };
+});
+
+//设置图片列表样式 文本显示区域
+rvt.onShow = function(){
+	var i = this.Index, list = this.List[i];
+	//图片式
+	Each(arrImg, function(o){ o.className = ""; }); arrImg[i].className = "on";
+	//按钮式
+	Each(arrNum, function(o){ o.className = ""; }); arrNum[i].className = "on";
+	//文本区域
+	oText.innerHTML = !!list.url ? "<a href='" + list.url + "' target='_self'>" + list.text + "</a>" : list.text;
+}
+
+//文本显示区域
+oText.onmouseover = function(){ rvt.Auto = false; rvt.Stop(); };
+oText.onmouseout = function(){ rvt.Auto = true; rvt.Start(); };
+
+rvt.Start();
+
+</script>    
+    -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helpert">
+  <tr>
+    <td class="helpert_left"></td>
+    <td class="helpert_middle">公告栏</td>
+    <td class="helpert_right"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helper">
+  <tr>
+    <td width="100%" class="MainContentText"><ul style="margin: 5px 0px 0px 15px; padding: 0px;">
+                <li class="default"><a href="bbstcon.php?board=Announce&amp;gid=9808">[公告] 2009-12-27 山水盛典之夜期待您的光临</a></li>
+                <li class="default"><a href="bbstcon.php?board=Announce&amp;gid=9807">[公告] 本站站务管理人员调整</a></li>
+                <li class="default"><a href="bbstcon.php?board=Announce&amp;gid=9806">[公告] 吉列“赢”新年有奖发文系列活动——第三波</a></li>
+                <li class="default"><a href="bbstcon.php?board=Announce&amp;gid=9805">[公告] 吉列“赢”新年有奖发文系列活动——第二波</a></li>
+                <li class="default"><a href="bbstcon.php?board=Announce&amp;gid=9804">[公告] 吉列“赢”新年有奖发文系列活动——第一波</a></li>
+              </ul></td>
+  </tr>
+</table>
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helpert">
+  <tr>
+    <td class="helpert_left"></td>
+    <td class="helpert_middle">海报栏</td>
+    <td class="helpert_right"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helper">
+  <tr>
+    <td width="100%" class="MainContentText"><ul style="margin: 5px 0px 0px 15px; padding: 0px;">
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3988">武汉大学医学生“规划大学生活”系列讲座之一 —- 学会自强自立</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3987">关注12月26日18点30分\&quot;自强嘉年华寻宝之夜\&quot;宋卿体育馆神秘启</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3986">珞源国学讲坛第39期（梅兰芳知名弟子、中国戏曲学院王志怡教授</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3984">第二届武汉大学博士节之珞桂情缘新年联谊会</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3980">“求是论坛”第71期--民族复兴与文化发展系列讲座之科研创新精</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3977">武汉大学法学院宪法与行政法学研究生学术沙龙第36期预告</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3976">邓晓芒老师讲座！</a></li>
+                <li class="default"><a href="bbstcon.php?board=Notice&amp;gid=3973">关于举办武汉大学第七十五期博士学术沙龙的通知</a></li>
+              </ul></td>
+  </tr>
+</table>
+<br>
+<table width='100%'><tr><td width='50%' valign='top'><table width="100%" border="0" cellpadding="0" cellspacing="0" class="helpert">
+  <tr>
+    <td class="helpert_left"></td>
+    <td class="helpert_middle">推荐版面</td>
+    <td class="helpert_right"></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helper">
+  <tr>
+    <td width="100%" class="MainContentText"><ul style="margin: 5px 0px 0px 15px; padding: 0px;">
+                <li class="default"><a href="bbsdoc.php?board=Advice">共建山水</a></li>
+                <li class="default"><a href="bbsdoc.php?board=kaoyan">考研信息港</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Job">工作</a></li>
+                <li class="default"><a href="bbsdoc.php?board=JobInfo">工作信息</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Picture">贴图版</a></li>
+                <li class="default"><a href="bbsdoc.php?board=BBSHelp">BBS使用技巧</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Cherub">匿名天使的家</a></li>
+                <li class="default"><a href="bbsdoc.php?board=food">饮食文化</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Hardware">硬件天地</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Linux_Unix">Linux &amp; Unix</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Notice">校园海报栏</a></li>
+                <li class="default"><a href="bbsdoc.php?board=PopMusic">流行音乐</a></li>
+                <li class="default"><a href="bbsdoc.php?board=Story">珞珈原创</a></li>
+                <li class="default"><a href="bbsdoc.php?board=sysop">站务讨论</a></li>
+                <li class="default"><a href="bbsdoc.php?board=TrafficInfo">交通信息</a></li>
+              </ul></td>
+  </tr>
+</table>
+<br>	
+</td><td width='50%' valign='top'><table width="100%" border="0" cellpadding="0" cellspacing="0" class="helpert">
+  <tr>
+    <td class="helpert_left"></td>
+    <td class="helpert_middle">人气排名</td>
+    <td class="helpert_right"></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helper">
+    <tr>
+    <td height="20" class="MainContentText">1.<a href="bbsdoc.php?board=Feeling">心情故事</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">2.<a href="bbsdoc.php?board=PieFriends">缘分的天空</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">3.<a href="bbsdoc.php?board=WHUExpress">武大特快</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">4.<a href="bbsdoc.php?board=single">光辉岁月</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">5.<a href="bbsdoc.php?board=PostGraduate">研究生之家</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">6.<a href="bbsdoc.php?board=Humor">幽默</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">7.<a href="bbsdoc.php?board=Picture">贴图版</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">8.<a href="bbsdoc.php?board=secondhand">二手货交易市场</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">9.<a href="bbsdoc.php?board=Job">工作</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">10.<a href="bbsdoc.php?board=Fashion">格调生活</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">11.<a href="bbsdoc.php?board=PopMusic">流行音乐</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">12.<a href="bbsdoc.php?board=Movie">电影</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">13.<a href="bbsdoc.php?board=Advice">共建山水</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">14.<a href="bbsdoc.php?board=Abroad">出国·他乡寻梦</a></td>
+  </tr>
+    <tr>
+    <td height="20" class="MainContentText">15.<a href="bbsdoc.php?board=Love">情谊两心知</a></td>
+  </tr>
+  </table>
+<br>
+</td></tr></table><a name="todaybless"></a>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helpert">
+  <tr>
+    <td class="helpert_left"></td>
+    <td class="helpert_middle">今日祝福</td>
+    <td class="helpert_right"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="helper">
+  <tr>
+    <td class="MainContentText"><ul style="margin: 5px 0px 0px 15px; padding: 0px;">
+                <li class="default"><a href="bbstcon.php?board=Wish&gid=1105616103">狼姐一路走好</a></li>
+                <li class="default"><a href="bbstcon.php?board=Wish&gid=1105616112">今日生日祝福</a></li>
+                <li class="default"><a href="bbstcon.php?board=Wish&gid=1105616098">明天生日~~~</a></li>
+              </ul></td>
+  </tr>
+</table>
+</td>
+    <td width="10">&nbsp;</td>
+  </tr>
+</table>
+<br>
+</body>
+</html>

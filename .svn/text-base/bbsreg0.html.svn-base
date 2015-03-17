@@ -1,0 +1,17 @@
+<html>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312">
+<link rel=stylesheet type=text/css href='bbs.css'>
+<nobr><center>武汉大学珞珈山水 BBS 站实名办法<hr color=green>
+<table width=750 border=0 cellpadding=0 cellspacing=0>
+<tr><td></td><td align=center><br><br>
+<table width="500">
+<tr><td>
+  <div  style="border:1px #999999 solid; padding:10px; text-indent:2em" align=left>
+应上级要求,本站对用户进行实名管理,只有通过实名认证的用户才有发帖权限,末实名认证的用户只能浏览。本站提供网上实名论证功能。请在注册时或在实名注册单中如实填写<font color="red">姓名</font>,<font color="red">学号</font>,<font color="red">身份证号</font>,系统将根据这三项资料自动进行实名认证。未能通过网上实名认证的同学，请带有关证件(学生证)前往<font color="red">武大文理学部梅园一舍二楼网络信息管理办公室</font>, 办理实名手续。
+    </div>
+</td></tr>
+</table>
+<br>
+<input type=button value="下一步" onClick="window.location='bbsreg1.html';return false">
+</body>
+</html>

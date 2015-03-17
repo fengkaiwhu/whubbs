@@ -1,0 +1,18 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<title>欢迎光临珞珈山水BBS站</title>
+</head>
+<script language="javascript">
+<!--
+var pageArray = new Array("now/");
+var rand=new Date().getSeconds();
+var url="indexpages/"+pageArray[rand % pageArray.length];
+document.write('<frameset frameborder="NO" border="0" framespacing="0">'+
+    '<frame name="mainFrame" src="' + url + '"></frameset>');
+//-->
+</script>
+<noscript>
+	你的浏览器不支持Javascript!<br/>
+</noscript>
+</html>

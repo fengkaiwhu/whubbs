@@ -1,0 +1,12 @@
+function showLeftAd() {
+document.write('<center><br /><br />');
+document.write('<a href="http://www.3gexpo.net.cn"  target="_blank"><img border=0 src=ad/shibo.gif></a><br /><br />');
+document.write('<a href="http://www.3gexpo.net.cn" style="color:red;" target="_blank">免费参观上海世博会</a><br /><br />');
+//document.write('<a href="ad/add/adthink.html" style="color:red;" target="_blank">只要1999 联想b450团购</a><br /><br />');
+//document.write('<a href="http://bbs.whu.edu.cn/bbscon.php?bid=278&id=5138" style="color:red;" target="_blank">广东移动2010年校园招聘</a><br /><br />');
+document.write('<a href="ad/thinkpad.php" style="color:red;" target="_blank">2009年过去了，还有哪些事情没来得及做?</a><br /><br />');
+document.write('</center>');
+document.write('<center>');
+document.write('</center>');
+}
+showLeftAd();
