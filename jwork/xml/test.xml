@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GB2312"?> 
+<shop> 
+ <name>华联</name> 
+ <address>北京长安街－9999号</address> 
+ <desc>连锁超市</desc> 
+ <cat id="food"> 
+  <goods id="food11"> 
+   <name>food11</name> 
+   <price>12.90</price> 
+  </goods> 
+  <goods id="food12"> 
+   <name>food12</name> 
+   <price>22.10</price> 
+   <desc creator="hahawen">好东西推荐</desc> 
+  </goods> 
+ </cat> 
+ <cat> 
+  <goods id="tel21"> 
+   <name>tel21</name> 
+   <price>1290</price> 
+  </goods> 
+ </cat> 
+ <cat id="coat"> 
+  <goods id="coat31"> 
+   <name>coat31</name> 
+   <price>112</price> 
+  </goods> 
+  <goods id="coat32"> 
+   <name>coat32</name> 
+   <price>45</price> 
+  </goods> 
+ </cat> 
+ <special id="hot"> 
+  <goods> 
+   <name>hot41</name> 
+   <price>99</price> 
+  </goods> 
+ </special> 
+</shop>

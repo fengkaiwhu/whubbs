@@ -1,0 +1,8 @@
+function showLeftAd() {
+
+document.write('<center>');
+
+document.write('<a href="wForum/disparticle.php?boardName=Announce&ID=9943&pos=1" style="color:blue;font-family:微软雅黑;font-size:18px;">珞珈山水<img src="favicon.ico"><br>Android客户端</a><br /><br />');
+document.write('</center>');
+}
+showLeftAd();

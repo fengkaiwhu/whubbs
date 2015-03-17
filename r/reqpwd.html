@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>密码找回——珞珈山水BBS</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="page-header">
+		  <h1>珞珈山水BBS  密码取回<small>——通过人工审核修改密码</small></h1>
+		</div>
+  		<form class="form-horizontal" role="form" method="post" action="findpasswd.php">
+  			<div class="form-group has-feedback">
+				<label for="inputBBSID" class="col-sm-2 col-sm-offset-1 control-label">BBS ID<font color="red">*</font></label>
+				<div class="col-sm-6">
+				  <input type="text" class="form-control" id="inputBBSID" placeholder="BBS ID">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputName" class="col-sm-2 col-sm-offset-1 control-label">姓名</label>
+				<div class="col-sm-6">
+				  <input type="text" class="form-control" id="inputName" placeholder="姓名">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputSfzh" class="col-sm-2 col-sm-offset-1 control-label">身份证号</label>
+				<div class="col-sm-6">
+				  <input type="text" class="form-control" id="inputSfzh" placeholder="身份证号">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputXh" class="col-sm-2 col-sm-offset-1 control-label">学号</label>
+				<div class="col-sm-6">
+				  <input type="text" class="form-control" id="inputXh" placeholder="学号">
+				</div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="inputEmail" class="col-sm-2 col-sm-offset-1 control-label">取回邮箱<font color="red">*</font></label>
+				<div class="col-sm-6">
+				  <input type="email" class="form-control" id="inputEmail" placeholder="取回邮箱">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputElse" class="col-sm-2 col-sm-offset-1 control-label">备注</label>
+				<div class="col-sm-6">
+				  <textarea class="form-control" rows="3" id="inputElse" placeholder="备注"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-6">
+				  <button type="submit" class="btn btn-primary" id="send">提交</button>
+				  <button type="reset" class="btn btn-default" id="rst">重置</button>
+				</div>
+			</div>
+		</form>
+  	</div>
+
+	<div id="footer">
+      <div class="container">
+        <p class="text-muted credit"  style="text-align:center"><a href="http://bbs.whu.edu.cn">武汉大学BBS 珞珈山水站</a> All rights reserved.</p>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    function showResult(obj,result){
+    	if(result){
+    			$(obj).parents("div.form-group").removeClass("has-success").addClass("has-error");
+				$(obj).nextAll("span.help-block").show();
+				$(obj).nextAll("span.glyphicon-remove").show();
+				$(obj).nextAll("span.glyphicon-ok").hide();
+			}else{
+				$(obj).parents("div.form-group").removeClass("has-error").addClass("has-success");
+				$(obj).nextAll("span.help-block").hide();
+				$(obj).nextAll("span.glyphicon-remove").hide();
+				$(obj).nextAll("span.glyphicon-ok").show();
+			}
+    }
+    $(function(){
+    	$("#inputBBSID").blur(function(){
+    		showResult( this,this.value=="");
+    	}).parent().append('<span class="glyphicon glyphicon-ok form-control-feedback"></span><span class="glyphicon glyphicon-remove form-control-feedback"></span><span class="help-block">请输入正确的BBS ID</span>');
+
+    	$("#inputEmail").blur(function(){
+    		var r = this.value=="" || ( this.value!="" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value) );
+    		showResult(this,r);
+    	}).parent().append('<span class="glyphicon glyphicon-ok form-control-feedback"></span><span class="glyphicon glyphicon-remove form-control-feedback"></span><span class="help-block">请输入正确的邮箱</span>');
+
+    	$("#send").click(function(){
+    		$("input.form-control").blur();
+    		if ($("div.has-error").length > 0) 
+    			return false;
+    		
+    		$.post("doreset.php",
+	          { "tgt": "reqpwd", 
+	            "uid": $("input#inputBBSID").val(), 
+	            "name":$("input#inputName").val(),
+	            "sfzh":$("input#inputSfzh").val(),
+	            "xh":$("input#inputXh").val(),
+	            "email": $("input#inputEmail").val(),
+	            "bz": $("textarea#inputElse").val() },
+	          function(data){
+	            if(data.success === null || data.success === undefined)
+	            {
+	              alert(data.error);
+	            }
+	            else
+	            {
+	              alert(data.success);
+	              location.href="http://bbs.whu.edu.cn";
+	            }
+	          }, "json");//post end
+	        return false;
+    	});
+
+    	$("span.glyphicon, span.help-block").hide();
+    });
+    </script>
+  </body>
+</html>

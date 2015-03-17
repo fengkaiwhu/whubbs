@@ -1,0 +1,30 @@
+﻿.layout { width:100%; margin:5px auto 0; background:white; border:1px solid white; }
+.classroom { width:482px;  }
+.classroom p { font:bold 12px /18px verdana; padding-left:20px; margin:10px 0 }
+.student { width:518px; overflow:auto;}
+.student img { width:259px; float:left; }
+.room { background:#37a530 url(/HotNews/512/img/xwxctop.jpg) no-repeat top right; }
+.room .roombot { background:url(/HotNews/512/img/xwxcbot.jpg) no-repeat top right; height:8px; clear:both; }
+.room p { font:18px/18px verdana; color:#ffffff; padding:10px 0 10px 20px; margin:0; }
+.room img { float:left; margin:7px 0 0 8px; border:3px solid #c4f984; cursor:pointer; height:170px; }
+.room img:hover { border-color:white; }
+.babas { width:327px; height:498px; background:url(/HotNews/512/img/classbg.jpg) no-repeat; margin:0 0 0 6px; padding-bottom:7px; _display:inline; overflow:hidden; }
+.babas h1 { font:bold 14px/24px verdana; margin:12px 0; text-align:center; }
+.babas img { border:3px solid gray; cursor:pointer; }
+.babas img:hover { border-color:red; }
+.babas img.bobo { width:285px; margin:10px auto; display:block; }
+.babas div.bobo { width:291px; margin:0 auto 10px; }
+.babas div.bobo img { float:left; margin:0 0 3px 3px }
+.babas div.bobo p { text-indent:2em; }
+.wenchua div { margin:5px 0 5px 5px; }
+.wenchua img { float:left; border:3px solid gray; cursor:pointer; }
+.wenchua img:hover { border-color:#D3D3D3;}
+
+
+#gotoArea { background:white; display:none; position:absolute; border:3px double #50A0C7; }
+#gotoArea a { font:12px /18px simsun; margin-left:10px; }
+#gotoAreadiv { border-bottom:1px solid #327A9C; background:#50A0C7; font:bold 12px /18px simsun; padding:0 5px; margin-bottom:5px; color:white; }
+#gotoAreadiv a { color:black; text-decoration:none; font:12px/18px verdana; float:right; padding:0 3px; }
+#gotoAreadiv a:hover { color:white; background:red; }
+.TB { font-weight:bold !important; }
+.TR { color:red !important; }

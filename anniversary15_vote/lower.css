@@ -1,0 +1,19 @@
+﻿body{ margin:0; background:#8CFF8F; }
+form { margin:0; }
+.navbox { height:37px; background:white url(/img/nav2_bg.gif) repeat-x; margin:1px auto; font:bold 14px/35px simsun; min-width:1004px;}
+.navbox a { color:#FFCCCC; text-decoration:none; }
+.navbox a:hover { color:white; }
+.navbox .nav a { padding:4px 21px; }
+.navbox .nav a:hover { background:url(/img/nav2_butbg.gif) no-repeat; }
+.navbox .logo { padding:0 40px; }
+.navbox .logo a img { border:none; margin-top:-3px; +margin-top:-1px; vertical-align:middle; }
+@media all and (){ .navbox .logo a img{margin-top:-1px}}
+.navbox .so img { vertical-align:middle; float:left; margin:10px 20px 0; cursor:pointer; }
+.navbox .so .sotext { height:16px; border:1px solid #b3b3b3; margin-top:10px; }
+.navbox .so .sotext input { float:left;height:16px; margin:0; padding:0; background:#EEEEEE; vertical-align:middle; border:none; }
+.navbox .so .sotext:hover { border-color:yellow; }
+.navbox .so .sotext:hover input { background:white; }
+.logo,.nav{ padding:0 10px; background:url(/img/nav2_bgLine.gif) no-repeat right; }
+.bot { height:35px; background:gray; font:12px/35px verdana; padding-left:30px; color:#2A2A2A; }
+.bot a { color:#2A2A2A; }
+.bot a:hover { color:black; }

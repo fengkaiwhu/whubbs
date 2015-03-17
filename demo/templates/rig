@@ -1,0 +1,100 @@
+<!--
+<script>
+    var hoverTimer, outTimer; 
+
+    function showDiv(obj)
+
+    {
+
+    linkDiv.style.left=getPosition(obj).x-120;
+
+    linkDiv.style.top=getPosition(obj).y+obj.offsetHeight+26;
+
+    linkDiv.style.position="absolute";
+
+    linkDiv.style.display='block';
+
+    }
+
+
+    linkDiv.onmouseout=function()
+        {
+
+           linkDiv.style.display='none';
+
+        };
+
+    linkDiv.onmouseover =function(){
+
+                 linkDiv.style.display='block';
+             };
+
+
+    function closeDiv(obj){
+            clearTimeout(hoverTimer);
+          hoverTimer =setTimeout(function(){
+                 linkDiv.style.display='none';
+
+               
+          },1500);
+
+            
+         
+    }
+
+   
+
+
+    function getPosition(el)
+
+    {
+
+    for ( var lx=0,ly=0;el!=null;lx+=el.offsetLeft,ly+=el.offsetTop,el=el.offsetParent);
+
+    return {
+        x:lx,y:ly
+    }
+
+    }
+
+</script>
+-->
+
+
+<!--
+<script>
+    
+    //显示资料卡  
+var beforeId;   //定义全局变量  
+function showInfoCard(thisObj,id){  
+    this.hidden(beforeId);  //立刻隐藏前一个选中弹出来的div  
+    beforeId = id;  
+//  alert(id);  
+//  var d = $(thisObj);  
+//  var pos = d.offset();  
+//  var t = pos.top + d.height() - 5; // 弹出框的上边位置  
+//  var l = pos.left - d.width() - 600;  // 弹出框的左边位置  
+//  $("#"+id).css({ "top": t, "left": l }).show();  
+//    
+      
+    var objDiv = $("#"+id);  
+  
+    $(objDiv).css("display","block");  
+  
+    $(objDiv).css("left", event.clientX-280);   //弹出框的位置X值  
+      
+    $(objDiv).css("top", event.clientY-10);     //弹出框位置Y值  
+}  
+function hideInfoCard(id){  //隐藏div  
+    //延时3秒  
+    setTimeout('hidden('+id+')',3000);  
+}  
+  
+function hidden(id){  
+    $("#"+id).hide();  
+}  
+
+
+
+</script>
+-->

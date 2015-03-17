@@ -1,0 +1,191 @@
+当前版本：
+Jwork For PHP v2.0.8
+
+_______________________________________________________
+
+
+版本历史：
+
+2006年10月，Jwork的前身Jpage诞生。
+2007年10月，Jpage PHP版产生，即Jwork for php  beta v1.0。
+2007年12月，Jpage for php relse v10 发布。
+2008年02月，Jpage for php beta v2.0.0 发布。
+2008年03月，Jpage for php relse v2.0.3发布。
+2008年03月，Jpage for php relse v2.0.8发布。
+
+2008-03-24日修改：
+
+1、解决表单回填Form类内容中包含换行、回车页导致js出错的问题。
+2、完善了上传功能，包括单文件上传和HTML编辑器上传的集成管理。
+
+2008-05-01
+
+1、优化了上传，并采取了会议识别强化了上传安全！
+2、将FCK编辑器进行全面合理性完善，新FCK编辑器，分别前台、后台两大类。
+3、增强了工具类，包括字符串的中文式处理、生成xml、rss、io等。
+
+
+2008-05-20
+重写了PHP字符串的实现，实现了字符串的中文标准处理。
+
+2008-08-06
+修订了Smarty模板字符串截取中文乱码问题。
+
+2008-08-10
+
+1、解决了IIS和Apache不同的服务器上，统一了模板路径设置的问题。
+2、增加了安全机制，上传等重大权限处，采用会话session验证。
+
+
+2008-08-15
+
+1、解决了IIS和Apache不同的服务器上，统一了模板路径设置的问题。
+2、增加了安全机制，上传等重大权限处，采用会话session验证。
+
+_____________________________________________________
+
+
+Jwork，快乐你我，开发中国！
+
+_________________________________________________________________________
+
+一、数据类 Data
+_________________________________________________________________________
+
+1、使前方法：
+     inlcude("../jwork/Data.php");
+     $data = new Data();
+
+2、方法列表：
+
+    sqlArray(查询语句);  返回二维数组(表) 
+    sqlRow(查询语句);    返回首行
+    sqlValue(查询语句);   返回首行首列的值
+
+   sqlExecute(sql语句);  执行方法，返回受影响行数
+  
+
+3、分页专题：
+ 
+    ■ 海量分页方法：
+    jpage($sql_list,$sql_count='',$pagesize=20,$url='')
+    jpageSea  与上同， jpage的别名
+
+    支持：
+     普通的查询语句，如select * from abc where id>2 and b=2
+     多表查询：select p.*,c.id,c.name from pro_info p,class_info c;
+    子句在from后面的子查询：select * from news where id>(select id from aa where id=5)
+
+     原理：jpage方法，要对语句进行拆分，从页得到类似：
+     select count(*) from 原查询语句的from后测，也就是说，jpage方法，是将第一个from来拆分两个子句的。
+
+     注意事项：
+     jpage（$sqllist）能满足大多数需求；复杂查询使用jpage($sqllist,$sqlcount)，此方法不存在sql折分，故将满足各种查询情况。
+
+
+
+
+       ■  适合小量数据，
+
+        jpageRill($sql_list,$pagesize=20,$url='')
+          此方法，采用子查询分页算法，在查询效率上，要低于上面的方法，所在大量数据情况下，不适合使用。
+         10万条以内的数据查询，使用本分页在速度上，与上法差别细微。
+
+       在260万条数据的情况下：
+        使用jpageSea得到汇总，需 7543 ms
+        使用jpageRill得到汇总，需 88000ms
+
+          原理：利用子查询
+          $sql_count="select count(*) from (".$sql.") as jpage";
+          $sql_list="select jpage.* from (".$sql_list.") as jpage";
+
+
+
+        特点：
+           支持对任何查询分句的分页，并且只需要写查询，不需写统计语句。
+           如，在新闻中，对前100条记录（limit 100），分页。
+
+
+       ■ 分页的样式：
+
+          style属性
+
+           default 默认值标准样式
+           data    海量数据样式
+           base   简易样式
+
+     
+ 
+        foot属性
+        显示分页的页脚，显示样式由style属性指定。
+
+
+        可以head中定义，形如的样式表，对页脚进行控制。
+        #foot {color:blue;}
+        #foot a:link{font-size:14px;color:red;} 
+
+
+_________________________________________________________________________
+
+二、上传实现
+_________________________________________________________________________
+
+调用upload.php文件，然后把上传之后的文件名显示出来。
+关于上传文件类型、大小、路径在config.php文件里设置。
+
+示例：
+<input name="news_photo" type="text" id="news_photo" />
+ <a  href="#" onclick="window.open('../../jwork/tools/upload.php?input=news_photo','','width=300,height=60');">[上传]</a>
+
+原理：
+使用php的move_uploaded_file()函数来实现的。
+ 
+
+上传路径的设置：
+../../jwork/tools/upload.php?input=news_photo&path=news
+
+其中，input用于显示上传文件名称的控件ID。
+      path用于指上传文件的存放路径
+      path为空，或不写path参数，表示存到config中指定的文件夹。
+      path为 /news，表示上传于程序目录下的news文件下。
+      path为  news, 表示上传于程序目录下/config指定的上传目录/news文件下。
+
+
+
+_________________________________________________________________________
+
+三、html编辑器的使用
+_________________________________________________________________________
+
+
+ $edit = new FCKeditor("news_meno"); //用$_Request["news_meno"]取得编辑器的值
+ $edit->Create(); //显示编辑器
+
+修改数据：
+
+      $e = new FCKeditor("news_meno");
+      $e->Width="800px";
+      $e->Value=$row["news_meno"];
+      $e->Create();
+
+
+_________________________________________________________________________
+
+四、Form类(自动填充)的使用
+_________________________________________________________________________
+
+// 前提：当表单中控件名与表中的字段名相同时，可直接填充。
+$form = new Form($row);
+$form->delKey("news_meno"); //news_meno为新闻内容，不实现自动填充
+$form->autofill();
+
+
+delKey表示排除的选项。
+
+
+
+
+
+
+
+

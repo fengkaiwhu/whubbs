@@ -1,0 +1,188 @@
+<?php
+require("www2-funcs.php");
+require("encrypt.php");
+require("config.php");
+require("uc_client/client.php");
+set_fromhost();
+cache_header("nocache");
+
+//////////////////////////////////
+//check mysql error
+//////////////////////////////////
+function check_mysql()
+{
+	if (mysql_errno()>0)
+		die("<br>.MySQL error".mysql_errno().":".mysql_error());
+		return;
+}
+
+@$id = $_POST["id"];
+@$passwd = $_POST["passwd"];
+@$kick_multi = $_POST["kick_multi"];
+@$mainurl = $_GET["mainurl"];
+@$webtype = $_POST["webtype"];
+if ($mainurl!="") $mainurl=urlencode($mainurl);
+if ($id=="") error_alert("用户名不能为空");
+
+
+///如果$id为纯数字组成
+if (is_numeric($id))
+{
+	if(strlen($id) ==12  || strlen($id) == 13)///学号长度一般为12、13
+	{
+		//////////////数据库信息//////////////////
+   		 $mysql_server_name = "127.0.0.1";
+  		 $mysql_username = "whubbs";
+   		 $mysql_password = "bbswebwhu";
+  		 $mysql_database = "whuinfo";
+    
+		 $link=mysql_connect($mysql_server_name,$mysql_username,$mysql_password);
+   		 mysql_query("set names 'latin1_swedish_ci'"); 
+
+   		 if (!$link)
+			check_mysql();
+    	 	if (!mysql_select_db($mysql_database,$link))
+			check_mysql();
+					
+		///获取身份证号	
+		$sqlstr="select sfzh,xm from stuinfo where xh='".$id."'";
+		if (!($result=mysql_query($sqlstr)))
+		    	check_mysql();
+		
+		if (mysql_num_rows($result)>0)
+		{
+			$row  = mysql_fetch_array($result, MYSQL_NUM);
+			$sfzh = $row[0];
+			$xm   = $row[1];
+			if (strlen($sfzh) == 18)
+				$pass = substr($sfzh,12,6);
+			else if(strlen($sfzh) == 8)
+				$pass = substr($sfzh,2,6);
+			if ($passwd != $pass)
+				error_alert("密码错误，初始密码为身份证号后六位！");
+			else
+			{
+				header("location:bbsnewreg.php?xh=$id&idnum=$sfzh&xingming=$xm");
+				exit();
+			 }
+		 }
+		 else
+		        error_alert("非常抱歉，我们的数据库中没有你的学号等信息");
+	}
+}
+
+
+$ret = bbs_check_ban_ip($id, $fromhost);
+switch($ret) {
+case 1:
+    error_alert("对不起，当前位置不允许登录该ID。");
+    break;
+case 2:
+    error_alert("该 ID 不欢迎来自该 IP 的用户。");
+    break;
+}
+
+if (($id!="guest")&&bbs_checkpasswd($id,$passwd)!=0) error_alert("用户密码错误，请重新登录！");
+$error=bbs_wwwlogin(($kick_multi!="") ? 1 : 0, $fromhost, $fullfromhost);
+switch($error) {
+	case 0:
+	case 2:
+		//normal
+		break;
+	case -1:
+		prompt_multilogin();
+		exit;
+	case 3:
+		error_alert("本帐号已停机或正在戒网");
+	case 5:
+		error_alert("登录过于频繁");
+	case 1:
+		error_alert("对不起，系统忙碌，请稍候再尝试登录");
+	default:
+		error_alert("登录错误，错误号：" . $error);
+}
+
+$data = array();
+$num=bbs_getcurrentuinfo($data);
+
+if ($data["userid"] != "guest") {
+	$wwwparameters = bbs_getwwwparameters();
+	setcookie("WWWPARAMS",$wwwparameters,0,"/");
+	$currentuser_num=bbs_getcurrentuser($currentuser);
+	
+	if(!($currentuser["userlevel"]&BBS_PERM_LOGINOK )) {
+		$mainurl = "bbsnew.php";
+	}
+	$mbids = bbs_bm_get_manageable_bids();
+	if ($mbids) {
+		setcookie("MANAGEBIDS", $mbids,0,"/");
+	}
+	header("Set-KBSRC: " . $data["userid"]);
+}
+setcookie("UTMPKEY",$data["utmpkey"],0,"/");
+setcookie("UTMPNUM",$num,0,"/");
+setcookie("UTMPUSERID",$data["userid"],0,"/");
+setcookie("password",encrypt($_POST["passwd"],$_POST["id"]+"@bbs"),3600*24*365,"/");
+
+
+if($webtype != 'wforum')
+{
+$target = "frames.html";
+
+if ($mainurl!="") {
+	if (!strcasecmp(substr($mainurl,0,"6"),"atomic"))
+		header("Location: ".$mainurl);
+	elseif(!strcasecmp(substr($mainurl,0,"6"),"mobile"))
+		echo "SUCCESS";
+	else
+		header("Location: $target?mainurl=" . $mainurl);
+} else
+	header("Location: $target");
+}else
+{
+	$target = "wForum/frames.php";
+
+	if(($currentuser["userlevel"]&BBS_PERM_LOGINOK )){
+		if($data = uc_get_user($id)) {
+			list($uid, $username, $email) = $data;
+			$reghome = true;
+		}else{
+			$uid = uc_user_register($id, $passwd, $id."@bbs.whu.edu.cn");
+			if($uid <= 0) {$reghome = true;}
+		}
+	}	
+
+	if(!($currentuser["userlevel"]&BBS_PERM_LOGINOK ))
+	{
+		header("Location: $target?target=../bbsnew.php");
+	}
+	else
+	{
+		header("Location: $target?target=../wmainpage.php");
+	}
+}
+
+function prompt_multilogin() {
+	global $id, $passwd, $mainurl;
+?>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb2312" /></head>
+<script type="text/javascript">
+function cc() {
+	if (confirm("你登录的窗口过多，是否踢出多余的窗口？"))
+		document.infoform.submit();
+	else
+		window.location = "index.html";
+}
+</script>
+<body onLoad="cc()">
+<form name="infoform" action="bbslogin.php?mainurl=<?php echo $mainurl; ?>" method="post">
+<input type="hidden" name="id" value="<?php echo $id; ?>">
+<input type="hidden" name="passwd" value="<?php echo $passwd; ?>">
+<input type="hidden" name="kick_multi" value="1">
+</form> 
+</body>
+</html>
+<?php
+} 
+?>

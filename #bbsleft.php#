@@ -1,0 +1,440 @@
+<?php
+	require("www2-funcs.php");
+	require("config.php");
+	require("uc_client/client.php");
+	login_init();
+	
+	function display_board_list()
+	{
+?>
+<div class="b1">
+<?php
+		for($i = 0; $i < BBS_SECNUM; $i++)
+		{
+?>
+<a href="javascript:submenu(0,0,<?php echo $i; ?>,0,0)" target="_self">
+<img id="submenuimg_brd_<?php echo $i; ?>_0" src="images/close.gif" class="pm" alt="+"
+></a><a href="bbsboa.php?group=<?php echo $i; ?>"><script type="text/javascript">putImage('kfolder1.gif','class="s16x16"');</script><?php echo constant("BBS_SECNAME".$i."_0"); ?></a><br/>
+<div id="submenu_brd_<?php echo $i; ?>_0" class="lineback"></div>
+<?php
+		}
+?>
+<img src="images/open.gif" class="pm" alt="-"
+><a href="bbsxmlbrd.php?flag=2"><script type="text/javascript">putImage('kfolder1.gif','class="s16x16"');</script>‘ĞÂ‘¿ª‘ÌÖ‘ÂÛ‘Çø</a>
+</div>
+<?php
+	}
+	
+	function display_my_favorite()
+	{
+?>
+<div class="b1">
+<?php
+		$select = 0; 
+
+		if( bbs_load_favboard($select)!=-1 && $boards = bbs_fav_boards($select, 1)) 
+		{
+			$brd_name = $boards["NAME"]; // ‘Ó¢‘ÎÄ‘Ãû
+			$brd_desc = $boards["DESC"]; // ‘ÖĞ‘ÎÄ‘Ãè‘Êö
+			$brd_flag = $boards["FLAG"]; 
+			$brd_bid = $boards["BID"];  //‘°æ ID ‘»ò‘Õß fav dir ‘µÄ‘Ë÷‘Òı‘Öµ 
+			$rows = sizeof($brd_name);
+			
+			for ($j = 0; $j < $rows; $j++)
+			{
+				if( $brd_bid[$j] == -1) { //‘¿Õ‘ÊÕ‘²Ø‘Ä¿‘Â¼
+					echo "-‘¿Õ‘Ä¿‘Â¼-";
+				}
+				else if ($brd_flag[$j]==-1)
+				{
+?>
+<div class="fi">
+<a href="javascript:submenu(1,<?php echo $brd_bid[$j]; ?>,0,0,0)" target="_self">
+<img id="submenuimg_fav_<?php echo $brd_bid[$j]; ?>" src="images/close.gif" class="pm" alt="+"
+></a><a href="bbsfav.php?select=<?php echo $brd_bid[$j]; ?>&up=-1"><script type="text/javascript">putImage('kfolder1.gif','class="s16x16"');</script><?php echo $brd_desc[$j]; ?></a></div>
+<div id="submenu_fav_<?php echo $brd_bid[$j]; ?>" class="lineback"></div>
+<?php
+				}
+				else
+				{
+					$brd_link="bbsdoc.php?board=" . urlencode($brd_name[$j]);
+
+					if( $j != $rows - 1 )
+						echo "<div class='lb'><div class='mi'><a href='".$brd_link."'>".$brd_desc[$j]."</a></div></div>";
+					else
+						echo "<div class='lmi'><a href='".$brd_link."'>".$brd_desc[$j]."</a></div>";
+				}
+			}
+		}
+?>
+</div>
+<?php 
+	}
+	
+	function display_mail_menu($userid)
+	{
+?>
+<div class="mi"><a href="bbsnewmail.php">‘ÔÄ‘ÀÀ‘ĞÂ‘ÓÊ‘¼ş</a></div>
+<div class="mi"><a href="bbsmailbox.php?path=.DIR&title=<?php echo rawurlencode("‘ÊÕ‘¼ş‘Ïä"); ?>">‘ÊÕ‘¼ş‘Ïä</a></div>
+<div class="mi"><a href="bbsmailbox.php?path=.SENT&title=<?php echo rawurlencode("‘·¢‘¼ş‘Ïä"); ?>">‘·¢‘¼ş‘Ïä</a></div>
+<div class="mi"><a href="bbsmailbox.php?path=.DELETED&title=<?php echo rawurlencode("‘À¬‘»ø‘Ïä"); ?>">‘À¬‘»ø‘Ïä</a></div>
+<?php
+		//custom mailboxs
+		$mail_cusbox = bbs_loadmaillist($userid);
+		if ($mail_cusbox != -1)
+		{
+			foreach ($mail_cusbox as $mailbox)
+			{
+				echo "<div class=\"mi\">".
+					"<a href=\"bbsmailbox.php?path=".$mailbox["pathname"]."&title=".urlencode($mailbox["boxname"])."\">".htmlspecialchars($mailbox["boxname"])."</a></div>\n";
+			}
+		}
+?>
+<div class="lmi"><a href="bbspstmail.php">‘·¢‘ËÍ‘ÓÊ‘¼ş</a></div>
+<?php		
+	}
+		
+	function display_blog_menu($userid,$userfirstlogin)
+	{
+		$db["HOST"]=bbs_sysconf_str("MYSQLBLOGHOST");
+		$db["USER"]=bbs_sysconf_str("MYSQLBLOGUSER");
+		$db["PASS"]=bbs_sysconf_str("MYSQLBLOGPASSWORD");
+		$db["NAME"]=bbs_sysconf_str("MYSQLBLOGDATABASE");
+
+		
+		@$link = mysql_connect($db["HOST"],$db["USER"],$db["PASS"]) ;
+		if (!$link) return;
+		@mysql_select_db($db["NAME"],$link);
+		
+		$query = "SELECT `uid` FROM `users` WHERE `username` = '".$userid."' AND `createtime`  > ".date("YmdHis",$userfirstlogin)." LIMIT 0,1 ;";
+		$result = mysql_query($query,$link);
+		$rows = mysql_fetch_array($result);
+		@mysql_free_result($result);
+		global $currentuser;
+		$rows = ( $currentuser["flag1"] & BBS_PCORP_FLAG );
+		if(!$rows)
+		{
+?>
+<div class="mi"><a href="pc/pcapp0.html">‘Éê‘ÇëBLOG</a></div>
+<?php
+		}
+		else
+		{
+?>
+<div class="mi"><a href="pc/index.php?id=<?php echo $userid; ?>">‘ÎÒ‘µÄBlog</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=0">‘¹«‘¿ª‘Çø</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=1">‘ºÃ‘ÓÑ‘Çø</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=2">‘Ë½‘ÈË‘Çø</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=3">‘ÊÕ‘²Ø‘Çø</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=4">‘É¾‘³ı‘Çø</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=5">‘ºÃ‘ÓÑ‘¹Ü‘Àí</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=6">‘·Ö‘Àà‘¹Ü‘Àí</a></div>
+<div class="mi"><a href="pc/pcdoc.php?userid=<?php echo $userid; ?>&tag=7">‘²Î‘Êı‘Éè‘¶¨</a></div>
+<div class="mi"><a href="pc/pcfile.php?userid=<?php echo $userid; ?>">‘¸ö‘ÈË‘¿Õ‘¼ä</a></div>
+<div class="mi"><a href="pc/pcmanage.php?userid=<?php echo $userid; ?>&act=post&tag=0&pid=0">‘Ìí‘¼Ó‘ÎÄ‘ÕÂ</a></div>
+<?php		
+		}	
+	}
+
+	cache_header("nocache");
+?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<script type="text/javascript" src="static/www2-main.js"></script>
+<script type="text/javascript"><!--
+	writeCssLeft();
+	top.document.title = '‘»¶‘Ó­‘İ°‘ÁÙ<?php echo BBS_FULL_NAME; ?>';
+//-->
+</script>
+<script type="text/javascript" src="static/bbsleft.js"></script>
+<!--[if IE]>
+<style type="text/css">
+.t2,.logo {
+	width: 167px;
+}
+</style>
+<![endif]-->
+<base target="f3" />
+</head>
+<body>
+<iframe id="hiddenframe" name="hiddenframe" width="0" height="0" src="images/img.gif" frameborder="0" scrolling="no"></iframe>
+
+<!--‘Õ¾‘µã‘±ê‘Ö¾-->
+<!--<?php if (defined("SITE_NEWSMTH")) { ?>
+<script type="text/javascript">putImage('t1.gif','class="pm"');</script>
+<?php } else { ?>
+<center style="padding: 0.3em;font-weight:bold;font-size:120%;"><?php echo BBS_FULL_NAME; ?></center>
+<?php } ?>-->
+<img src="images/whubbslogo4.gif" border="0"/>
+
+<?php
+		if($currentuser["userid"]=="guest")
+		{
+?>
+<div class="t2">
+<form action="bbslogin.php" method="post" name="form1" target="_top" onSubmit="return fillf3(this);" class="m0">
+<nobr><script type="text/javascript">putImage('u1.gif','alt="‘µÇ‘Â¼‘ÓÃ‘»§‘Ãû" class="pm"');</script>
+<input type="text" class="upinput" LENGTH="10" onMouseOver="this.focus()" onFocus="this.select()" name="id" onKeyPress="return input_okd(this, event);" /></nobr><br/>
+
+<nobr><script type="text/javascript">putImage('u3.gif','alt="‘ÓÃ‘»§‘ÃÜ‘Âë" class="pm"');</script>
+<input type="password" class="upinput" LENGTH="10" name="passwd" maxlength="39" onKeyPress="return input_okd(this, event);" /></nobr><br />
+<div class="m9">
+<nobr><a href="javascript:form1.submit();">
+<script type="text/javascript">putImage('l1.gif','alt="‘µÇ‘Â¼‘½ø‘Õ¾" class="m10" onClick="form1.submit();"');</script></a>
+<a href="bbsreg0.html" target="_top">
+<script type="text/javascript">putImage('l3.gif','alt="‘×¢‘²á‘ĞÂ‘ÓÃ‘»§" class="m10"');</script></a></nobr>
+</div>
+</form>
+<?php
+		}
+		else
+		{
+?>
+<div class="t2">
+<nobr><script type="text/javascript">putImage('u1.gif','alt="‘µÇ‘Â¼‘ÓÃ‘»§‘Ãû" class="pm"');</script>
+&nbsp;&nbsp;<?php echo $currentuser["userid"]; ?></nobr><br/>
+<?php
+		}
+?>
+</div>
+
+<div class="b1 m4">
+	<img src="images/open.gif" class="pm" alt="-"
+	><a href="<?php echo MAINPAGE_FILE; ?>"><script type="text/javascript">putImage('i_main.gif','class="sfolder"');</script>‘Ê×‘Ò³‘µ¼‘¶Á</a><br/>
+	
+	<img src="images/open.gif" class="pm" alt="-"
+	><a href="/wForum/frames.php" target="_top"><script type="text/javascript">putImage('i_main.gif','class="sfolder"');</script>‘ÂÛ‘Ì³‘Ä£‘Ê½</a><br/>
+
+	<img src="images/open.gif" class="pm" alt="-"
+	><a href="/sphider/search.php" ><script type="text/javascript">putImage('i_main.gif','class="sfolder"');</script>‘È«‘Õ¾‘ËÑ‘Ë÷</a><br/>
+<?php
+if($data = uc_get_user($currentuser["userid"])) {
+list($uid, $username, $email) = $data;
+echo uc_user_synlogin($uid);
+
+?>
+        <img src="images/open.gif" class="pm" alt="-"
+        ><a style="color:red" href="/home/home" target="_blank"><script type="text/javascript">putImage('i_main.gif','class="sfolder"');</script>‘ÎÒ‘µÄ‘¿Õ‘¼ä</a><img src="images/new.gif"><br/>
+        <img src="images/open.gif" class="pm" alt="-"
+        ><a style="color:red" href="/w" target="_blank"><script type="text/javascript">putImage('i_main.gif','class="sfolder"');</script>‘É½‘Ë®‘Î¢‘²©</a><img src="images/new.gif"><br/>
+<?php
+}
+?>
+	
+	<img src="images/open.gif" class="pm" alt="-"
+	><a href="bbs0an.php"><script type="text/javascript">putImage('i_ann.gif','class="sfolder"');</script>‘¾«‘»ª‘Çø</a><br/>
+	
+	<a href='javascript:changemn("board");' target="_self"><img id="imgboard" src="images/close.gif" class="pm" alt="+"
+	></a><a href="bbssec.php"><script type="text/javascript">putImage('i_board.gif','class="sfolder"');</script>‘·Ö‘Àà‘ÌÖ‘ÂÛ‘Çø</a><br/>
+	<div class="pp" id="divboard">
+<?php
+	display_board_list();
+?>
+	</div>
+<!--
+	<img src="images/open.gif" class="pm" alt="-"><a href="bbsfav.php?x"><script type="text/javascript">putImage('i_newsec.gif','class="sfolder"');</script>‘ĞÂ‘·Ö‘Àà‘ÌÖ‘ÂÛ‘Çø</a><br />
+-->
+	
+	<div><form action="bbssel.php" method="get" class="m0"><nobr
+		><img src="images/open.gif" class="pm" alt="-"><script type="text/javascript">putImage('i_search.gif','class="sfolder"');</script><input name="board" type="text" class="f2" value="‘ËÑ‘Ë÷‘ÌÖ‘ÂÛ‘Çø" size="10" onMouseOver="this.focus()" onFocus="this.select()" /> 
+		<input name="submit" type="submit" value="GO" class="sgo" />
+		</nobr>
+	</form></div>
+<?php
+	if($currentuser["userid"]!="guest"){
+?>
+	<a href='javascript:changemn("fav");' target="_self"><img id="imgfav" src="images/close.gif" class="pm" alt="+"></a
+	><a href="bbsfav.php?select=0"><script type="text/javascript">putImage('i_fav.gif','class="sfolder"');</script>‘ÎÒ‘µÄ‘ÊÕ‘²Ø‘¼Ğ</a><br/>
+
+	<div class="pp" id="divfav">
+<?php
+		display_my_favorite();
+?>
+	</div>
+
+	<img src="images/open.gif" class="pm" alt="-"
+	><a href="bbssfav.php?userid=<?php echo $currentuser['userid']; ?>"><script type="text/javascript">putImage('i_sfav.gif','class="sfolder"');</script><?php echo FAVORITE_NAME; ?></a><br/>
+
+<?php
+	}
+	if (defined("BBS_HAVE_BLOG"))
+	{
+?>
+	<a href='javascript:changemn("pc");' target="_self"><img id="imgpc" src="images/close.gif" class="pm" alt="+"
+	></a><a href='pc/index.html'><script type="text/javascript">putImage('i_blog.gif','class="sfolder"');</script><?php echo BBS_NICKNAME; ?>Blog</a><br/>
+	<div class="pp" id="divpc">
+<?php
+		if($currentuser["userid"]!="guest")
+			display_blog_menu($currentuser["userid"],$currentuser["firstlogin"]);
+?>
+		<div class="mi"><a href="pc/index.html">Blog‘Ê×‘Ò³</a></div>
+		<div class="mi"><a href="pc/pc.php">‘ÓÃ‘»§‘ÁĞ‘±í</a></div>
+		<div class="mi"><a href="pc/pcreco.php">‘ÍÆ‘¼ö‘ÎÄ‘ÕÂ</a></div>
+		<div class="mi"><a href="pc/pclist.php">‘ÈÈ‘ÃÅ‘ÅÅ‘ĞĞ</a></div>
+		<div class="mi"><a href="pc/pcsec.php">‘·Ö‘Àà‘Ä¿‘Â¼</a></div>
+		<div class="mi"><a href="pc/pcnew.php">‘×î‘ĞÂ‘ÈÕ‘Ö¾</a></div>
+		<div class="mi"><a href="pc/pcnew.php?t=c">‘×î‘ĞÂ‘ÆÀ‘ÂÛ</a></div>
+		<div class="mi"><a href="pc/pcsearch2.php">‘²©‘¿Í‘ËÑ‘Ë÷</a></div>
+		<div class="mi"><a href="pc/pcnsearch.php">‘ÈÕ‘Ö¾‘ËÑ‘Ë÷</a></div>
+<?php
+		@include("pc/pcconf.php");
+		if (isset($pcconfig["BOARD"])) {
+?>
+		<div class="mi"><a href="bbsdoc.php?board=<?php echo $pcconfig["BOARD"]; ?>">Blog‘ÂÛ‘Ì³</a></div>
+<?php
+		}
+		if ($currentuser && $currentuser["index"]) { //blog manage menu
+			if (isset($pcconfig["BOARD"])) {
+				$brdarr = array();
+				$pcconfig["BRDNUM"] = bbs_getboard($pcconfig["BOARD"], $brdarr);
+				if (bbs_is_bm($pcconfig["BRDNUM"], $currentuser["index"])) {
+?>
+		<div class="mi"><a href="pc/pcadmin_rec.php">Blog‘¹Ü‘Àí</a></div>
+<?php
+		}}} //blog manage menu
+?>
+		<div class="lmi"><a href="pc/index.php?id=SYSOP">‘°ï‘Öú‘Ö÷‘Ìâ</a></div>
+		</div>
+<?php
+	} // defined(BBS_HAVE_BLOG)
+
+	if($currentuser["userid"]!="guest"){
+?>
+	<a href='javascript:changemn("mail");' target="_self"><img id="imgmail" src="images/close.gif" class="pm" alt="+"
+	></a><a href="bbsmail.php"><script type="text/javascript">putImage('i_mail.gif','class="sfolder"');</script>‘ÎÒ‘µÄ‘ĞÅ‘Ïä</a><br/>
+
+	<div class="pp" id="divmail">
+<?php
+		display_mail_menu($currentuser["userid"]);
+?>					
+	</div>
+<?php
+	}
+?>
+<?php 
+	if ($currentuser["userid"]=="dsj")
+	{	
+?>
+	<img src="images/open.gif" class="pm" alt="-" 	 
+	><a href="manage.php"><script type="text/javascript">putImage('i_style.gif','class="sfolder"');</script><font color="red">‘Êµ‘Ãû‘¹Ü‘Àí</font></a><br/> 	
+ <?php
+}
+?>  
+	<a href='javascript:changemn("chat");' target="_self"><img id="imgchat" src="images/close.gif" class="pm" alt="+"
+	><script type="text/javascript">putImage('i_talk.gif','class="sfolder"');</script>‘Ì¸‘Ìì‘Ëµ‘µØ</a><br/>
+	<div class="pp" id="divchat">
+<?php
+	if (!defined("SITE_SMTH")) { // Smth‘²»‘Ìá‘¹©‘ÔÚ‘Ïß‘ÓÃ‘»§‘ÁĞ‘±í add by windinsn, May 5,2004
+?>
+		<div class="mi"><a href="bbsuser.php">‘ÔÚ‘Ïß‘ÓÃ‘»§</a></div>
+<?php
+	}
+	if($currentuser["userid"]=="guest"){
+?>					
+		<div class="lmi"><a href="bbsqry.php">‘²é‘Ñ¯‘Íø‘ÓÑ</a></div>
+<?php
+	}					
+	else{
+?>
+		<div class="mi"><a href="bbsqry.php">‘²é‘Ñ¯‘Íø‘ÓÑ</a></div>
+		<div class="mi"><a href="bbsfriend.php">‘ÔÚ‘Ïß‘ºÃ‘ÓÑ</a></div>
+		<div class="mi"><a href="bbsmsg.php">‘²é‘¿´‘Ëù‘ÓĞ‘Ñ¶‘Ï¢</a></div>
+		<div class="lmi"><a href="bbssendmsg.php">‘·¢‘ËÍ‘Ñ¶‘Ï¢</a></div>
+<?php
+	}
+?>	
+	</div>
+
+	<img src="images/open.gif" class="pm" alt="-" 	 
+	><a href="telnet:bbs.whu.edu.cn"><script type="text/javascript">putImage('i_telnet.gif','class="sfolder"');</script>Telnet‘µÇ‘Â¼</a><br/> 	 
+<?php
+if((!($currentuser["userlevel"]&BBS_PERM_LOGINOK))&&$currentuser["userid"]!="guest") {
+?>
+<img src="images/open.gif" class="pm" alt="-"
+	><a href="bbsfillform.html"><script type="text/javascript">putImage('i_ann.gif','class="sfolder"');</script><font color="red">‘Êµ‘Ãû‘×¢‘²á‘µ¥</font></a><br/>
+<?php
+}
+?>
+<a href='javascript:changemn("ser");' target="_self"><img id="imgchat" src="images/close.gif" class="pm" alt="+"
+	><script type="text/javascript">putImage('i_sfav.gif','class="sfolder"');</script>‘Óé‘ÀÖ‘Óë‘ÏÂ‘ÔØ</a><br/>
+	<div class="pp" id="divser">
+					<div class="mi"><a href="/ddz/index.php">‘¶·‘µØ‘Ö÷</a></div>
+					<div class="mi"><a href="/games/index.html">‘Ğ¡‘ÓÎ‘Ï·</a></div>
+					<div class="mi"><a href="/five/index.php">‘Îå‘×Ó‘Æå</a></div>
+		<div class="mi"><a href="chess/index.php">‘ÖĞ‘¹ú‘Ïó‘Æå</a></div>
+		<div class="mi"><a href="3guo/index.php" target="_blank">‘Öğ‘Â¹‘Èı‘¹ú</a></div>
+		<div class="mi"><a href="ogame/login.php">‘Òø‘ºÓ‘µÛ‘¹ú</a></div>
+					<div class="lmi"><a href="download.php">‘ÍÆ‘¼ö‘ÏÂ‘ÔØ</a></div>
+	</div>
+<!--	
+	<img src="images/open.gif" class="pm" alt="-" 	 
+	><a href="bbsstyle.php"><script type="text/javascript">putImage('i_style.gif','class="sfolder"');</script>‘×Ô‘¶¨‘Òå‘½ç‘Ãæ</a><br/> 	
+ -->
+
+<?php
+	if($currentuser["userid"]!="guest")
+	{
+?>
+	<a href='javascript:changemn("tool");' target="_self"><img id="imgtool" src="images/close.gif" class="pm" alt="+"
+	><script type="text/javascript">putImage('i_config.gif','class="sfolder"');</script>‘¸ö‘ÈË‘²Î‘Êı‘Éè‘ÖÃ</a><br/>
+
+	<div class="pp" id="divtool">
+<?php
+		if(!($currentuser["userlevel"]&BBS_PERM_LOGINOK) ||
+			((defined("SITE_NEWSMTH")) && (!($currentuser["flag1"]&BBS_ACTIVATED_FLAG))) )
+		{
+?>
+		<div class="mi"><a href="bbsnew.php">‘ĞÂ‘ÓÃ‘»§‘Ğë‘Öª</a></div>
+<?php
+			if(!($currentuser["userlevel"]&BBS_PERM_LOGINOK)) {
+?>
+		<div class="mi"><a href="bbsfillform.html"><font color="red">‘Êµ‘Ãû‘×¢‘²á‘µ¥</font></a></div>
+<?php
+}
+}
+?>
+		<div class="mi"><a href="bbsinfo.php">‘¸ö‘ÈË‘×Ê‘ÁÏ</a></div>
+		<div class="mi"><a href="bbsplan.php">‘¸Ä‘Ëµ‘Ã÷‘µµ</a></div>
+		<div class="mi"><a href="bbssig.php">‘¸Ä‘Ç©‘Ãû‘µµ</a></div>
+		<div class="mi"><a href="bbspwd.php">‘ĞŞ‘¸Ä‘ÃÜ‘Âë</a></div>
+		<div class="mi"><a href="bbsbadlist.php">‘ºÚ‘Ãû‘µ¥</a></div>
+		<div class="mi"><a href="bbsparm.php">‘ĞŞ‘¸Ä‘¸ö‘ÈË‘²Î‘Êı</a></div>
+<?php
+		if($currentuser["userlevel"]&BBS_PERM_CLOAK)
+		{
+?>
+		<div class="mi"><a href="bbscloak.php">‘Òş‘Éí‘Êõ</a></div>
+<?php
+		}
+		if (defined("SITE_NEWSMTH")) {
+?>
+		<div class="mi"><a href="bbsal.php">‘Í¨‘Ñ¶‘Â¼</a></div>
+<?php
+		}
+?>
+		<div class="mi"><a href="bbsnick.php">‘ÁÙ‘Ê±‘¸Ä‘êÇ‘³Æ</a></div>
+		<div class="lmi"><a href="bbsfall.php">‘Éè‘¶¨‘ºÃ‘ÓÑ</a></div>
+	</div>
+<?php
+	}
+?>
+
+<?php
+	if($currentuser["userid"]!="guest"){
+?>
+	<img src="images/open.gif" class="pm" alt="-"
+	><a href="bbslogout.php" id="kbsrc_logout" target="_top"><script type="text/javascript">putImage('i_exit.gif','class="sfolder"');</script>‘Àë‘¿ª‘±¾‘Õ¾</a><br/><div id="kbsrcInfo">menu</div>
+<?php
+	}
+?>
+</div>
+<div>
+<br/><br/>
+<script type="text/javascript" src="bbsleftad.js"></script>
+</div>
+<div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Sphider 管理员控制面板</title>
+<link rel="stylesheet" href="admin.css" type="text/css" />
+</head>
+<body>
+
+<div id="admin"> 
+  <div id="tabs">
+    <ul>
+      
+      <li><a href="admin.php?f=2" id="default">站点</a>  </li>
+      <li><a href="admin.php?f=categories" id="default">分类</a></li> 
+      <li><a href="admin.php?f=index" id="default">索引</a></li>
+      <li><a href="admin.php?f=clean" id="default">表清除</a> </li>
+      <li><a href="admin.php?f=settings" id="selected">设置</a></li>
+      <li><a href="admin.php?f=statistics" id="default">统计</a> </li>
+      <li><a href="admin.php?f=database" id="default">数据库</a></li>
+      <li><a href="admin.php?f=24" id="default">注销</a></li>
+      </ul>
+    </div>
+  <div id="main">
+
+
+<div id='submenu'>&nbsp;</div>
+<div id="settings">
+
+<form name="form1" method="post" action="admin.php">
+<input type="hidden" name="f" value="settings">
+<input type="hidden" name="Submit" value="1">
+<table>
+<tr>
+<td colspan="2"><div class="tableSubHeading">通用设置</div></td>
+
+</tr>
+
+<tr>
+<td class="left1"><input name="_version_nr" value="1.3.4" type="hidden"> 
+1.3.4</td>
+<td> Sphider 版本</td>
+</tr>
+
+<tr>
+<td class="left1">
+<SELECT name="_language">
+<option value="ar" >Arabic</option>
+<option value="bg" >Bulgarian</option>
+<option value="hr" >Croatian</option>
+<option value="cns" selected>简体中文</option>
+<option value="cnt" >繁体中文</option>
+<option value="cz" >Czech</option>
+<option value="nl" >Dutch</option>
+<option value="en" >English</option>
+<option value="ee" >Estonian</option>
+<option value="fi" >Finnish</option>
+<option value="fr" >French</option>
+<option value="de" >German</option>
+<option value="hu" >Hungarian</option>
+<option value="it" >Italian</option>
+<option value="lv" >Latvian</option>
+<option value="pl" >Polish</option>
+<option value="pt" >Portuguese</option>
+<option value="ro" >Romanian</option>
+<option value="ru" >Russian</option>
+<option value="sr" >Serbian</option>
+<option value="sk" >Slovak</option>
+<option value="si" >Slovenian</option>
+<option value="es" >Spanish</option>
+<option value="se" >Swedish</option>
+<option value="tr" >Turkish</option>
+
+</SELECT>
+
+</td>
+<td> 语言包 (用于前台搜索页)</td>
+</tr>
+<tr>
+<td class="left1">
+<SELECT name="_template">
+  <option value="dark" >dark</option>
+  <option value="standard" selected>standard</option>
+  
+</SELECT>
+</td>
+
+<td>搜索模板</td>
+</tr>
+
+
+<tr>
+<td class="left1"><input name="_admin_email" value="admin@localhost" type="text" id="admin_email" size="20"> </td>
+<td> 管理员Email地址</td>
+</tr>
+
+
+<tr>
+<td class="left1"><input name="_print_results" type="checkbox" id="print_results" value="1" checked> </td>
+<td>显示标准索引结果</td>
+</tr>
+
+
+<tr>
+<td class="left1"> <input name="_tmp_dir" type="text"  value="tmp" id="tmp_dir" size="20"></td>
+<td> 临时目录(绝对或相对admin 目录)</td>
+</tr>
+
+
+<tr>
+<td colspan="2"><div class="tableSubHeading">采集选项</div></td>
+
+</tr>
+<tr>
+<td class="left1"><input name="_keep_log" type="checkbox" id="keep_log" value="1" > </td>
+<td> 索引日志</td>
+</tr>
+
+
+<tr>
+<td class="left1"> <input name="_log_dir" type="text"  value="log" id="log_dir" size="20"></td>
+<td> 记录文件存放目录(绝对或相对admin 目录)</td>
+</tr>
+
+<tr>
+<td class="left1">
+<SELECT name="_log_format">
+<option value="text" >Text</option>
+<option value="html" selected>Html</option>
+</SELECT></td>
+<td> 记录文件存放格式</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_email_log" type="checkbox" id="email_log" value="1" > </td>
+<td> 发送索引日志到指定Email</td>
+</tr>
+
+
+<tr>
+<td colspan="2"><div class="tableSubHeading">蜘蛛设置</div></td>
+
+</tr>
+
+<tr>
+<td class="left1"><input name="_min_words_per_page" value=
+"1" type="text" id=
+"min_words_per_page" size="5" maxlength="5"></td>
+<td> 一个页面中出现多少次的关键词才会被索引</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_min_word_length" type="text" value=
+"3" id="min_word_length" size="5"
+maxlength="2"></td>
+<td> 关键字索引最小长度</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_word_upper_bound" type="text" value=
+"100" id="word_upper_bound" size="5"
+maxlength="3"></td>
+<td> 关键字权重设置，出现在页面上多少次被重视</td>
+</tr>
+
+<tr>
+<td class="left1"><input
+name="_index_numbers" type="checkbox" value="1" id="index_numbers" checked></td>
+<td> 索引指数</td>
+</tr>
+
+<tr>
+<td class="left1"> <input name="_index_host" type="checkbox"  value="1" id="index_host" ></td>
+<td> 索引范围包括域名和网址里出现的关键词</td>
+</tr>
+
+
+<tr>
+<td class="left1"><input
+name="_index_meta_keywords" type="checkbox"  value="1" id=
+"index_meta_keywords" checked></td>
+<td> 索引网页预先设定的关键词（meta keywords）</td>
+</tr>
+
+<tr>
+<td class="left1"> <input name="_index_pdf" type="checkbox"  value="1" id="index_pdf" ></td>
+<td> 索引PDF格式文档</td>
+</tr>
+
+<tr>
+<td class="left1"> <input name="_index_doc" type="checkbox"  value="1" id="index_doc" ></td>
+<td> 索引DOC格式文档</td>
+</tr>
+
+
+<tr>
+<td class="left1"> <input name="_index_xls" type="checkbox"  value="1" id="index_xls" ></td>
+<td> 索引XLS格式文档</td>
+</tr>
+
+<tr>
+<td class="left1"> <input name="_index_ppt" type="checkbox"  value="1" id="index_ppt" ></td>
+<td> 索引PPT格式文档</td>
+</tr>
+
+
+<tr>
+<td class="left1"> <input name="_pdftotext_path" type="text"  value="c:\temp\pdftotext.exe" id="pdftotext_path"></td>
+<td>PDF(pdftotext)转换器可执行的绝对路径</td>
+</tr>
+
+<tr>
+<td class="left1"> 
+<input name="_catdoc_path" type="text"  value="c:\temp\catdoc.exe" id="catdoc_path"></td>
+<td>DOC(catdoc)转换器可执行的绝对路径 </td>
+</tr>
+
+<tr>
+<td class="left1"> <input name="_xls2csv_path" type="text"  value="c:\temp\xls2csv" id="xls2csv_path"></td>
+<td>XLS转换器可执行的绝对路径</td>
+</tr>
+
+<tr>
+<td class="left1"> 
+<input name="_catppt_path" type="text"  value="c:\temp\catppt" id="catppt_path"></td>
+<td>PPT转换器可执行的绝对路径 </td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_user_agent" value=
+"Sphider" type="text" id="user_agent" size="20"></td>
+<td> 用户代理字符串</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_min_delay" value=
+"0" type="text" id="min_delay" size="5"></td>
+<td> 页面下载的最小延迟</td>
+</tr>
+
+<tr>
+<td class="left1"><input
+name="_stem_words" type="checkbox"  value="1" id=
+"stem_words" ></td>
+<td> 在索引时使用stemming关键词算法，(例如：在寻找"run"时,寻找站点中含有的"runs"，"running"）。</td>
+</tr>
+
+<tr>
+<td class="left1"><input
+name="_strip_sessids" type="checkbox"  value="1" id=
+"strip_sessids" checked></td>
+<td> 排除 ids 进程(PHPSESSID, JSESSIONID, ASPSESSIONID, sid).</td>
+</tr>
+
+<tr>
+<td colspan="2"><div class="tableSubHeading">搜索设置</div></td>
+
+</tr>
+
+<tr>
+<td class="left1"> <input type=
+"radio" name="_results_per_page" value="10">10 <input type="radio" name="_results_per_page" value="20">20 <input type="radio"
+name="_results_per_page" value="50"checked>50</td>
+<td> 默认每页返回的查询结果数</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_cat_columns" type="text" id="cat_columns" value=
+"2" size="5" maxlength="2"> </td>
+<td> 分类分几列显示，如果想按自己的个性化显示，请在相关css文件中进行更改。</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_bound_search_result" type="text" value=
+"0" id="bound_search_results" size=
+"5"></td>
+<td> 限制返回的搜索结果条目，若你的配置够好，填0将显示全部结果。</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_length_of_link_desc" type="text" value=
+"0" id="length_of_link_desc" size=
+"5" maxlength="4"> </td>
+<td> 当从数据库中查询的量较大时，设置一个较低的值（例如：250 或 100，0为不限制）,可以在较慢的机器上明显得到速度的提升。查询量不大时，效果不明显。</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_links_to_next" type="text" value=
+"9" id="links_to_next" size="5" maxlength=
+"2"> </td>
+<td> 每页显示的链接条数。</td>
+</tr>
+
+<tr>
+<td class="left1">
+<input name="_show_meta_description" type="checkbox"   value="1" id=
+"show_meta_description" checked> </td>
+<td> 在结果页优先显示网页描述（meta description）否则显示从网页中文字中摘取</td>
+</tr>
+
+<tr>
+<td class="left1">
+ <input
+name="_advanced_search" type="checkbox"  value="1" id="advanced_search" ></td>
+<td>打开搜索高级选项（启用 and / or）。 </td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_show_query_scores" type="checkbox" value="1" id="show_query_scores" checked> </td>
+<td> 显示查询等级</td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_show_categories" type="checkbox" value="1" id="show_categories" checked> </td>
+<td> 显示分类</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_desc_length" type="text" id="desc_length" size="5"
+maxlength="4" value="250"> </td>
+<td> 在搜索结果中显示的页面摘要最大长度</td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_did_you_mean_enabled" type="checkbox" value="1" id="did_you_mean_enabled" checked> </td>
+<td> 使用搜索建议(您是不是想要搜索...)</td>
+</tr>
+
+
+<tr>
+<td class="left1"> <input
+name="_merge_site_results" type="checkbox" value="1" id="merge_site_results" > </td>
+<td> 快捷显示2个最相关的链接(仿法语谷歌的功能)</td>
+</tr>
+
+
+
+<tr>
+<td></td><td><div class="tableSubSubHeading">建议</div></td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_suggest_enabled" type="checkbox" value="1" id="_suggest_enabled" checked> </td>
+<td> 开启 Sphider 建议功能 </td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_suggest_history" type="checkbox" value="1" id="_suggest_history" checked> </td>
+<td> 搜索建议查询记录</td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_suggest_keywords" type="checkbox" value="1" id="_suggest_keywords" > </td>
+<td> 搜索建议关键词</td>
+</tr>
+
+<tr>
+<td class="left1"> <input
+name="_suggest_phrases" type="checkbox" value="1" id="_suggest_phrases" > </td>
+<td> 搜索建议词组</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_suggest_rows" type="text" id="_suggest_rows" size="3"
+maxlength="2" value="10"> </td>
+<td> 建议的字数</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2"><div class="tableSubHeading">权重</div></td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_title_weight" type="text" id="title_weight" size=
+"5" maxlength="2" value="20"> </td>
+<td> 网页标题关键词的相对权重</td>
+</tr>
+
+
+<tr>
+<td class="left1"><input name="_domain_weight" type="text" id="domain_weight"
+size="5" maxlength="2" value="60"> </td>
+<td> 站点域名的关键词相对权重</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_path_weight" type="text" id="path_weight" size="5"
+maxlength="2" value="10"> </td>
+<td> 网址路径的关键词相对权重</td>
+</tr>
+
+<tr>
+<td class="left1"><input name="_meta_weight" type="text" id="meta_weight" size="5"
+maxlength="2" value="5"> </td>
+<td> 网页预先设定在meta标签中的关键字的相对权重</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center"><br/> <input type="submit" value="保存设置" id="submit"></td>
+</tr>
+
+</table>
+</form>
+
+</div>
+<br/><br/><center>目前，数据库中有：4 站点, 4954 链接, 0 分类和 0 关键词。<br/><br/></center>
+</div>
+</div>
+</body>
+</html>

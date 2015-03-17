@@ -1,0 +1,41 @@
+<html xmlns=" http://www.w3.org/1999/xhtml">
+
+<script language="javascript">
+    var classid = "1"; 
+    var vodname = "a";
+    var serverip = "bbs.whu.edu.cn";
+    var mediapath = "streams";
+    function callExternalInterface() {
+        thisMovie("videoPlayer").setIP(serverip);
+        thisMovie("videoPlayer").setMediaPath(mediapath);
+        thisMovie("videoPlayer").setClass(classid, vodname);
+    }
+
+    function thisMovie(movieName) {
+        if (navigator.appName.indexOf("Microsoft") != -1) {
+        return window[movieName]
+        }
+        else {
+        return document[movieName]
+        }
+    }
+    function setflashScreenFull(){        
+        thisMovie("videoPlayer").setflashScreenFull();
+    } 
+    function setlivePause(){        
+        thisMovie("videoPlayer").setlivePause();
+    }   
+</script>
+<body onload="callExternalInterface()">
+<object>
+<codebase=" http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" 
+        id="videoPlayer" align="top" width="100%" height="100%" >
+  <param name="allowScriptAccess" value="sameDomain" />
+  <param name="allowFullScreen" value="true" />
+  <param name="Menu" value="false" />
+  <param name="movie" value="videoPlayer.swf" />
+  <param name="quality" value="high" />
+  <param name="bgcolor" value="#ffffff" />
+    </object> 
+</body>
+</html>
