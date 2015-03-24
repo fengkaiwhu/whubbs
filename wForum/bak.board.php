@@ -5,9 +5,6 @@ require("inc/board.inc.php");
 require("inc/conn.php");
 require("../new_add_file.php");
 
-<script type="text/javascript" src="js/smartpaginator.js"></script>
-<link href="css/smartpaginator.css" rel="stylesheet" type="text/css" />
-
 global $boardArr;
 global $boardID;
 global $boardName;
@@ -35,7 +32,7 @@ setStat($isGroup ? "版面列表" : "文章列表");
 	if ($isGroup) {
 		showSecs(get_secname_index($boardArr['SECNUM']),$boardID,true);
 	} else {
-?>	
+	
 		<div class="usermailcontainer">
   <table class="table" align="center" >
         <tbody>
@@ -68,7 +65,7 @@ setStat($isGroup ? "版面列表" : "文章列表");
 		$bms=split(' ',$boardArr['BM']);
 			foreach($bms as $bm) {
 		?>
-		<a href="dispuser.php?id=<?php echo $bm; ?>" title="点击查看该版主资料"><?php echo $bm; ?></a>
+		<a href="dispuser.php?id=<?php echo $bm; ?>" target=_blank title="点击查看该版主资料"><?php echo $bm; ?></a>
 		<?php
 			}
 		?>
@@ -84,104 +81,46 @@ setStat($isGroup ? "版面列表" : "文章列表");
     <div id="v6_pl_content_myfavoriteslist">
             <div>
                 <div class="WB_feed">
-            <?php   
-                $total = bbs_getThreadNum($boardID);
-                if($total<=0) { ?>
-                	<table><tr><td class=TableBody2 align="center" colspan="5">
-	本版还没有文章
-</td></tr>
-</table>
-<?php
-	} else {
-?>
-<?php 
-		$totalPages=ceil($total/ARTICLESPERPAGE);
-		if (($page>$totalPages)) {
-			$page=$totalPages;
-		} else if ($page<1) {
-			$page=1;
-		}
-		$start=($page-1)* ARTICLESPERPAGE;
-		$num=ARTICLESPERPAGE;
-
-		$articles = bbs_getthreads($boardName, $start, $num, 1);
-		$articleNum=count($articles);
-?>
-<?php 
-		include("inc/whuacc.php");//部门帐号
-		for($i=0;$i<$articleNum;$i++){
-			$origin=$articles[$i]['origin'];
-			//$lastreply=$articles[$i]['lastreply'];
-			if(isset($accwhu[$origin['OWNER']])){
-				$origin['OWNER']=$accwhu[$origin['OWNER']];
-			}
-			if(isset($accwhu[$lastreply['OWNER']])){
-				$lastreply['OWNER']=$accwhu[$lastreply['OWNER']];
-			}
-			$threadNum=$articles[$i]['articlenum']-1;//表示除了原帖之外回复帖子的数量
-?> 
-  	
+              
+               
+         
                     <!--1-->
                     <div class="WB_cardwrap WB_feed_type S_bg2">
                         <div class="WB_feed_detail clearfix">
-                           <?php $user=array();
-                           	 $user_num = bbs_getuser($origin['OWNER'],$user);
-                           	 if($user_num == 0)
-                           	 	$user = false;
-                           	 else if($origin['POSTTIME'] < $user['firstlogin'])
-                           	 	$user = false;
-                           	 if($user !== false){
-                           	 	if ($user['userface_img'] == -1) {
-						$user_pic = htmlEncode($user['userface_url']);
-						$has_size = true;
-					} else {
-						$user_pic = 'userface/image'.$user['userface_img'].'.gif';
-						$has_size = false;
-					}
-					//$str = "<img src=\"".$user_pic."\"";
-                           	 }
-                            ?>
+                           
                             <div class="WB_face W_fl">
                                 <div class="face">
-                                    <a  class="W_face_radius" href="./dispuser.php?id=<?php echo $origin['OWNER']; ?>"　 title="点击访问用户中心">
-                                        <img title="点击访问用户中心" alt="" width="50" height="50" src="<?php echo $user_pic;?>" class="W_face_radius">
-                                    </a>//显示发帖人的头像
+                                    <a target="_blank" class="W_face_radius" href="" title="Eexpert">
+                                        <img title="srender 晨旭" alt="" width="50" height="50" src="./img/userface/image123.gif" class="W_face_radius"></a>//显示发帖人的头像
                                 </div>
                             </div>
                             <div class="WB_detail">
                                 <div class="WB_info">
-                                    <a  class="W_f14 W_fb S_txt1" title="点击访问用户中心" href="./dispuser.php?id=<?php echo $origin['OWNER']; ?>"> <?php echo $origin['OWNER']； ?> </a>//显示发帖人名称
-
+                                    <a target="_blank" class="W_f14 W_fb S_txt1" title="Eexpert" href="./dispuser.php">Eexpert</a>//显示发帖人名称
+                                    <a  target="_blank" href="">
                                       <span class="W_icon_level icon_level_c3">
                                             <span class="txt_out">
                                             <span class="txt_in">
-                                                  <span title="用户身份">//显示用户对应的山水身份
-                                                  <?php echo bbs_getuserlevel($origin['OWNER']); ?>
+                                                  <span title="山水等级">//显示用户对应的山水身份
+                                                  版主
                                                   </span>
-                                                  <?php //显示BBS年度评选称号
-                                                  	include("inc/annu_Selection.php");
-                                                  	if(isset($bbsSelect[$origin['OWNER']])){?>
-                                                  	<span> <?php $select = "&nbsp;&nbsp;<font color='red'><b>".$bbsSelect[$origin['OWNER']]."</b></font>"; echo $select;?>
-                                                  	</span>	
-                                                  <?php	} ?>
-                                                  
                                             </span>
                                             </span>
                                        </span>
-
+                                    </a>
                                 </div>
 
                                 <div class="WB_text W_f14">
-                                <a href="./disparticle.php?boardName=<?php echo $boardName; ?>&ID=<?php echo $origin['ID']; ?>&pos=<?php $i+$start; ?>">//显示帖子的标题
-                                 <?php echo addslashes(htmlspecialchars($origin['TITLE'],ENT_QUOTES)); ?>
+                                <a href="./disparticle.php">//显示帖子的标题
+                                 年终了，大家评评哪个武大哪个食堂最差？哪个食堂最好？
                                 </a>        
                                  </div>
                                 <div class="WB_tag clearfix S_txt2">
                                     <span class="W_fr">
-                                    发布于 <?php echo strftime("%Y-%m-%d %H:%M:%S", $origin['POSTTIME']); ?>
+                                    发布于 2014.02.10
                                     &nbsp;
-                                    <a href="./board.php?name=<?php echo $boardArr["NAME"]; ?>">
-                                        [<?php echo htmlspecialchars($boardArr["DESC"]); ?>]
+                                    <a href="">
+                                        [版面名称]
                                     </a>
                                     </span>
                                 </div>                            
@@ -192,7 +131,7 @@ setStat($isGroup ? "版面列表" : "文章列表");
                                 <ul class="WB_row_line WB_row_r4 clearfix S_line2">
                                     <li>
                                         <a class="S_txt2" href="javascript:void(0);"><span class="pos"><span class="line S_line1">//回复帖子功能，可以显示已经有的回复的数量
-                                            回复(<?php echo (($origin['GROUPID'] == $lastreply['GROUPID'])?1:0)+$threadNum; ?>)
+                                            回复
                                         </span></span></a>
                                     </li>
                                     <li>
@@ -209,8 +148,7 @@ setStat($isGroup ? "版面列表" : "文章列表");
                         </div>
                     </div>
                     <!--1 end-->
-		<?php } //for循环结束
-		?>
+
 
                 </div>
             </div>
@@ -228,49 +166,9 @@ setStat($isGroup ? "版面列表" : "文章列表");
 
 
 <!--***************************************帖子列表结束*******************************************************-->
- <!-- search start 搜索当前版块文章标题含有某关键字的帖子列表-->
- <table class="table">
-        <tbody>
-            <tr>
-                <form method="GET" action="queryresult.php">
-                <input type="hidden" name="boardNames" value="<?php echo $boardArr["NAME"]; ?>">
-
-                <td class="boardsearch">
-                     
-                     <div class="col-lg-6">
-                        <div class="input-group">
-                            
-                              <input type="text" class="form-control" name="title" placeholder="搜索相关内容">
-                              <span class="input-group-btn">
-                                 <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                             </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                     
-                     </div>
-                </td>
-                </form>
-
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- search end-->
-</div>
-
-
-<script type="text/javascript">
-        $(document).ready(function () {
-
-          $('#skyblue').smartpaginator({ totalrecords: <?php echo $total; ?>, recordsperpage: <?php ARTICLESPERPAGE; ?>, length: 4, next: '下一页', prev: '前一页', first: '首页', last: '尾页', theme: 'skyblue', controlsalways: true, onchange: onPageChange
-            });
-
-        });
-        function onPageChange(newPageValue){
-        	board.php?name= $boardArr["NAME"] & page=newPageValue
-        }
-</script>
-
+		showBoardStaticsTop($boardArr, bbs_is_bm($boardID, $currentuser["index"]));//用来显示本版在线人数以及今日新帖数目
+?>
+<TABLE cellPadding=1 cellSpacing=1 class=TableBorder1 align=center>
 <?php
 		showBroadcast($boardID,$boardName);
 		showBoardContents($boardID,$boardName,$page);

@@ -252,7 +252,7 @@ function writepost(pos, html_title, threadNum, origin, lastreply, origin_exists,
 	 * groupID is different. See also www_generateOriginIndex() */
 	//if (!origin_exists) return;
 	document.write("<TR align=middle><TD class=TableBody2 width=32 height=27 align=\"center\">");
-	if (article_is_zhiding(origin.FLAGS)) {
+	if (article_is_zhiding(origin.FLAGS)) {//显示帖子对应的图标
 		document.write("<img src=\"pic/istop.gif\" title=\"固顶的主题\">");
 	} else if(article_is_digest(origin.FLAGS)) {
 		document.write("<img src=\"pic/isbest.gif\" title=\"精华帖\">");
@@ -264,7 +264,7 @@ function writepost(pos, html_title, threadNum, origin, lastreply, origin_exists,
 		document.write("<img src=\"pic/blue/folder.gif\" title=\"开放主题\">");
 	}
 	document.write("</TD><TD align=left class=TableBody1 width=* >");
-	if (threadNum==0) {
+	if (threadNum==0) {//显示帖子对应的回复列表
 		document.write('<img src="pic/nofollow.gif" id="followImg' + pos + '">');
 	} else {
 		document.write('<img loaded="no" src="pic/plus.gif" id="followImg' + origin.ID + '" style="cursor:hand;" onmouseover="loadThreadFollow(\'' + origin.ID +"','" + boardName + "')\" title=\"展开贴子列表\">");
@@ -272,7 +272,7 @@ function writepost(pos, html_title, threadNum, origin, lastreply, origin_exists,
 /*	if (has_attach) {
 		document.write('<img src="pic/havefolder.gif" align=absmiddle title="有附件">');
 	} 图标不好看，暂时不 enable - atppp */
-	if (origin_exists) {
+	if (origin_exists) {//显示帖子上的title
 		if (isIE) {
 			href_title = html_title + ' <br>作者：' + origin.OWNER + '<br>发表于' + origin.POSTTIME;
 		} else {
@@ -281,9 +281,9 @@ function writepost(pos, html_title, threadNum, origin, lastreply, origin_exists,
 	} else {
 		href_title = "原贴已删除";
 	}
-	document.write('<a href="disparticle.php?boardName=' + boardName + '&ID=' + origin.ID + '&pos=' + pos + '" title="' + href_title + '">' + html_title + ' </a>');
+	document.write('<a href="disparticle.php?boardName=' + boardName + '&ID=' + origin.ID + '&pos=' + pos + '" title="' + href_title + '">' + html_title + ' </a>');//真正显示对应的文章
 	threadPages = Math.ceil((threadNum+1)/siteconf_THREADSPERPAGE);
-	if (threadPages>1) {
+	if (threadPages>1) {//显示回复帖子page列表
 		document.write("<b>[<img src=\"pic/multipage.gif\"> ");
 		for (t=1; (t<7) && (t<=threadPages); t++) {
 			document.write("<a href=\"disparticle.php?boardName=" + boardName + "&ID=" + origin.ID + "&pos=" + pos + "&page=" + t + "\">" + t + "</a> ");
@@ -296,22 +296,22 @@ function writepost(pos, html_title, threadNum, origin, lastreply, origin_exists,
 		}
 		document.write(" ]</b>");
 	}
-	if (article_is_unread(lastreply.FLAGS)) {
+	if (article_is_unread(lastreply.FLAGS)) {//显示帖子后面对应的NEW图标
 		 //最后回复未读那这个 thread 就未读
 		document.write("<img src=\"pic/topnew2.gif\" title=\"未读\">");
 	}
 	document.write("</TD>");
 	document.write('<TD class=TableBody2 width=80 align="center">');
-	if (origin_exists) {
+	if (origin_exists) { //显示发帖人
 		document.write('<a href="dispuser.php?id=' + origin.OWNER + '" target=_blank>' + origin.OWNER + '</a>');
 	} else {
 		document.write('原贴已删除');
 	}
 	document.write('</TD>');
-	document.write('<TD class=TableBody1 width=64 align="center">' + ((origin_exists?0:1)+threadNum) + '</TD>');
+	document.write('<TD class=TableBody1 width=64 align="center">' + ((origin_exists?0:1)+threadNum) + '</TD>');//显示回复的帖子数
 	document.write('<TD align=left class=TableBody2 width=210><nobr>&nbsp;<a href="disparticle.php?boardName=' + boardName + '&ID=' + origin.ID + '&pos=' + pos + '&page=' + Math.ceil((threadNum+1)/siteconf_THREADSPERPAGE) + '#a' + threadNum + '">');
 	document.write(lastreply.POSTTIME + '</a>&nbsp;<font color=#FF0000>|</font>&nbsp;<a href=dispuser.php?id=' + lastreply.OWNER + ' target=_blank>');
-	document.write(lastreply.OWNER + '</nobr></a></TD></TR>');
+	document.write(lastreply.OWNER + '</nobr></a></TD></TR>');//显示回复的最后时间及最后的回复人
 	if (threadNum>0) {
 		document.write('<tr style="display:none" id="follow' + origin.ID + '"><td colspan=5 id="followTd' + origin.ID + '" style="padding:0px"><div style="width:240px;margin-left:18px;border:1px solid black;background-color:lightyellow;color:black;padding:2px" onclick="loadThreadFollow(\'' + origin.ID + '\', \'' + boardName + '\')">正在读取关于本主题的跟贴，请稍侯……</div></td></tr>');
 	}
