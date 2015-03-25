@@ -1,13 +1,54 @@
-{config_load file="test.conf" section="setup"}
-{include file="base.tpl" title=foo}
+<?php
 
-{include file="header.tpl"}
+require("inc/funcs.php");
+require("menpai.php");
+require("inc/user.inc.php");
+require("inc/ubbcode.php");
+require_once("inc/myface.inc.php");
+require_once("../new_add_file.php");
 
+preprocess();
 
-{include file="left.tpl"}
+if ($user !== false) {
+	showUserData($user,$user_num);
+}
+showQueryForm();
 
-{include file="right.tpl"}
+function preprocess() {
+	global $user,$user_num;
+	if (!isset($_GET['id']) || $_GET['id'] == "") {
+		$user = false;
+		return;
+	}
+	$userarray=array();
+	if (($user_num=bbs_getuser($_GET['id'],$userarray))==0) {
+		foundErr("没有找到相应的用户");
+	}
+	$user=$userarray;
+	return true;
 
+}
+
+function showQueryForm() {
+?>
+<form method="GET" action="dispuser.php">
+    <table class="table dispusertablesearch" >
+        <tbody>
+            <tr>
+                <td>请输入用户名:
+                    <input type="text" name="id">&nbsp;<input type="submit" value="查询用户" class="btn-info">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<?php
+}
+
+function showUserData($user, $user_num) {
+
+require("inc/userdatadefine.inc.php");
+?>
 <div class="votecontainer">
     
     <div>
@@ -27,7 +68,7 @@
 			//$has_size = false;
 		}
                         ?>
-                            <a href="#" title="����ͷ��">
+                            <a href="#" title="更换头像">
                                 <img src="<?php echo $user_pic; ?>" class="photo">
                             </a>
 
@@ -41,8 +82,8 @@
                     </div>
 
 <!--
-                    <div class="pf_intro" title="���Ҹо���">
-                        ���Ҹо���                   
+                    <div class="pf_intro" title="给我感觉！">
+                        给我感觉！                   
                     </div>
 -->
                 <div class="pf_opt">
@@ -50,13 +91,13 @@
                         <div class="btn_bed W_fl">
                             <a href="./sendmail.php?receiver<?php echo $user['userid']; ?>" class="W_btn_d btn_34px">
                                 
-                                �����ʺ�
+                                发信问候
                               
                             </a>
                         </div>
                         <div class="btn_bed W_fl">
                             <a href="./friendlist.php?addfriend=<?php echo $user['userid']; ?>"  class="W_btn_d btn_34px" >
-                            ��Ϊ����
+                            加为好友
                             </a>
                         </div>
                        
@@ -80,13 +121,13 @@
                             <tr>
                                 <td class="current">
                                     <a>
-                                        <span class="S_txt1 t_link"><a onclick="showBaseDiv()">��������</a></span>
+                                        <span class="S_txt1 t_link"><a onclick="showBaseDiv()">基本资料</a></span>
                                         <span class="ani_border"></span>
                                     </a>
                                 </td>
                                 <td class=" " >
                                     <a>
-                                        <span class="S_txt1 t_link" ><a onclick="showLuntanDiv()">��̳����</a></span>
+                                        <span class="S_txt1 t_link" ><a onclick="showLuntanDiv()">论坛属性</a></span>
                                         <span class="ani_border"></span>
                                     </a>
                                 </td>
@@ -107,8 +148,8 @@
             </td>
             <td align="right">
                 <b>
-                    <a href="sendmail.php?receiver=qhylyh" title="�����û�����">�����ʺ�</a> | 
-                    <a href="friendlist.php?addfriend=qhylyh" title="�����û����ӵ������б�">��Ϊ����</a>
+                    <a href="sendmail.php?receiver=qhylyh" title="给该用户发信">发信问候</a> | 
+                    <a href="friendlist.php?addfriend=qhylyh" title="将该用户添加到好友列表">加为好友</a>
                 </b>
             </td>
         </tr>
@@ -121,48 +162,48 @@
       
         <tbody>
             <tr>
-                <th colspan="2" align="left" height="25">��������</th>
+                <th colspan="2" align="left" height="25">基本资料</th>
             </tr>
             <tr>
-                <td  width="40%" align="right">�� �ƣ�</td>
+                <td  width="40%" align="right">昵 称：</td>
                 <td ><?php echo htmlspecialchars($user['username'],ENT_QUOTES); ?> </td>
             </tr>
 
             <tr>
-                <td  width="40%" align="right">�� ��</td>
-                <td ><?php echo chr($user['gender'])=='M'?'��':'Ů'; ?> </td>
+                <td  width="40%" align="right">性 别：</td>
+                <td ><?php echo chr($user['gender'])=='M'?'男':'女'; ?> </td>
             </tr>
             <tr>
-                <td  width="40%" align="right">�� ����</td>
+                <td  width="40%" align="right">星 座：</td>
                 <td >
                     <?php
 	echo get_astro($user['birthmonth'],$user['birthday']);
 ?>
             </tr>
             <tr>
-                <td  width="40%" align="right">�� �ѣ�</td>
+                <td  width="40%" align="right">Ｑ Ｑ：</td>
                 <td >
                     <?php echo showIt($user['OICQ']); ?></td>
             </tr>
             <tr>
-                <td  width="40%" align="right">�ɣãѣ�</td>
+                <td  width="40%" align="right">ＩＣＱ：</td>
                 <td >
                     <?php echo showIt($user['ICQ']); ?></td>
             </tr>
             <tr>
-                <td width="40%" align="right">�ͣӣΣ�</td>
+                <td width="40%" align="right">ＭＳＮ：</td>
                 <td >
                     <?php echo showIt($user['MSN']); ?></td>
             </tr>
             <tr>
-                <td width="40%" align="right">�� ҳ��</td>
+                <td width="40%" align="right">主 页：</td>
                 <td >
                     	<?php 
 	$homepage=htmlspecialchars(trim($user['homepage']),ENT_QUOTES);
 	if ($homepage!='') {
 		echo '<a href="'.$homepage.'" target="_blank">'.$homepage.'</a>'; 
 	} else {
-		echo "<font color=gray>δ֪</font>";
+		echo "<font color=gray>未知</font>";
 	}
 	?>
 	</td>
@@ -173,14 +214,14 @@
       
         <tbody>
             <tr>
-                <th colspan="4" align="left" height="25">ǩ����</th>
+                <th colspan="4" align="left" height="25">签名档</th>
             </tr>
             <tr>
                 <td>
                     
                      <p>
-                                ��Щ�£���֪�Ǵ��ģ�ҲҪȥ��֣���Ϊ�����ģ���Щ�ˣ���֪�ǰ��ģ�ҲҪȥ��������Ϊû��
-                                �֣���ʱ����֪û·�ˣ�ȴ����ǰ�У���Ϊϰ���ˡ�
+                                有些事，明知是错的，也要去坚持，因为不甘心；有些人，明知是爱的，也要去放弃，因为没结
+                                局；有时候，明知没路了，却还在前行，因为习惯了。
                     </p>
                 </td>
             </tr>
@@ -196,36 +237,36 @@
     <table class="table" border="1">
         <tbody>
             <tr>
-                <th align="left" colspan="6" height="25">��̳����</th>
+                <th align="left" colspan="6" height="25">论坛属性</th>
             </tr>
             <tr>
-                <td  width="15%" align="right">��ְ̳��</td>
+                <td  width="15%" align="right">论坛职务：</td>
                 <td width="35%" ><b><?php echo bbs_getuserlevel($user['userid']); ?> </b></td>
-                <td width="15%" align="right" >����������</td>
-                <td width="35%" ><b><?php echo $user['numposts']; ?></b> ƪ</td>
+                <td width="15%" align="right" >帖子总数：</td>
+                <td width="35%" ><b><?php echo $user['numposts']; ?></b> 篇</td>
             </tr>
             <tr>
-                <td  width="15%" align="right">��  �ɣ�</td>
-                <td width="35%" ><b><?php $arr = getgroupinfo($user['userid']);if($arr[1]!='') echo $arr[1].' '.$arr[2]; else echo '��������'?> </b></td>
-                <td  width="15%" align="right">��¼������</td>
+                <td  width="15%" align="right">门  派：</td>
+                <td width="35%" ><b><?php $arr = getgroupinfo($user['userid']);if($arr[1]!='') echo $arr[1].' '.$arr[2]; else echo '无门无派'?> </b></td>
+                <td  width="15%" align="right">登录次数：</td>
                 <td width="35%" ><b><?php echo $user['numlogins']; ?></b>
                 </td>
             </tr>
             <tr>
-                <td  width="15%" align="right">����ֵ��</td>
+                <td  width="15%" align="right">经验值：</td>
                 <td width="35%" ><b><?php echo bbs_getuserexp($user['userid']); ?> </b></td>
-                <td  width="15%" align="right">����ȼ���</td>
+                <td  width="15%" align="right">经验等级：</td>
                 <td width="35%" ><b><?php echo bbs_getexplevel($user['userid']); ?></b>
                 </td>
             </tr>
             <tr>
-                <td  width="15%" align="right">��������</td>
+                <td  width="15%" align="right">生命力：</td>
                 <td width="35%" ><b><?php echo bbs_compute_user_value($user["userid"]); ?></b></td>
-                <td width="15%" align="right" >�ϴε�¼��</td>
+                <td width="15%" align="right" >上次登录：</td>
                 <td width="35%" ><b><?php echo strftime("%Y-%m-%d %H:%M:%S", $user['lastlogin']); ?></b></td>
             </tr>
             <tr>
-                <td  width="15%" align="right">ͬ�ţ�</td>
+                <td  width="15%" align="right">同门：</td>
                 <td width="35%"  colspan="3"><b>
                     <?php $arr = getgroupinfo($user['userid']);if($arr[1]!='') $arr = getgroupmember($arr[1]);for($i=0;$i<count($arr);$i++) {echo "<a href='dispuser.php?id=".$arr[$i]."'>".$arr[$i]."</a>&nbsp;&nbsp;&nbsp;";if($i!=0 && $i%8==0) echo "<br>";}?></b></td>
             </tr>
@@ -233,26 +274,16 @@
                 <td width="50%"  colspan="2" align="center"><b><?php 
     	$usermodestr = bbs_getusermode($user["userid"]);
     	if( $usermodestr!="" && $usermodestr{1} != "") echo substr($usermodestr, 1);
-    	else echo "Ŀǰ����վ��"; ?></b></td>
-                <td width="15%" align="right" >�������IP��</td>
+    	else echo "目前不在站上"; ?></b></td>
+                <td width="15%" align="right" >最后来访IP：</td>
                 <td width="35%" ><b><?php echo $user['lasthost']; ?></b></td>
             </tr>
         </tbody>
     </table>
 </div>
-
-<form method="GET" action="dispuser.php">
-    <table class="table dispusertablesearch" >
-        <tbody>
-            <tr>
-                <td>�������û���:
-                    <input type="text" name="id">&nbsp;<input type="submit" value="��ѯ�û�" class="btn-info">
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</form>
-
+<?php
+}
+?>
 
 <script type="text/javascript">
     
@@ -273,6 +304,3 @@
             luntan.style.display = "block";
     }
 </script>
-
-
-</div>
